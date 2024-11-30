@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ikea_webpage_proje
 
 ## Build Setup
@@ -67,3 +68,7 @@ More information about the usage of this directory in [the documentation](https:
 This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
 
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+=======
+# ikea-web
+web programlama projesi
+>>>>>>> c3c91478cf5ba225ab2bfcf8e69cfc5b28ffab60
