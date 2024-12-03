@@ -62,12 +62,12 @@
               </v-row>
 
               <v-row class="footer-icons py-4">
-                  <v-btn outlined class="change-icon" icon="mdi-facebook" size="small"></v-btn>
-                  <v-btn variant="outlined" class="change-icon" icon="mdi-twitter" size="small"></v-btn>
-                  <v-btn variant="outlined" class="change-icon" icon="mdi-instagram" size="small"></v-btn>
-                  <v-btn variant="outlined" class="change-icon" icon="mdi-pinterest" size="small"></v-btn>
-                  <v-btn variant="outlined" class="change-icon" icon="mdi-youtube" size="small"></v-btn>
-                  <v-btn variant="outlined" class="change-icon" icon="mdi-linkedin" size="small"></v-btn>
+                  <v-btn outlined class="change-icon" icon="mdi-facebook" size="small"><v-icon>mdi-facebook</v-icon></v-btn>
+                  <v-btn outlined class="change-icon" icon="mdi-twitter" size="small"><v-icon>mdi-twitter</v-icon></v-btn>
+                  <v-btn outlined class="change-icon" icon="mdi-instagram" size="small"><v-icon>mdi-instagram</v-icon></v-btn>
+                  <v-btn outlined class="change-icon" icon="mdi-pinterest" size="small"><v-icon>mdi-pinterest</v-icon></v-btn>
+                  <v-btn outlined class="change-icon" icon="mdi-youtube" size="small"><v-icon>mdi-youtube</v-icon></v-btn>
+                  <v-btn outlined class="change-icon" icon="mdi-linkedin" size="small"><v-icon>mdi-linkedin</v-icon></v-btn>
                   <img src="../assets/footer-imgs/secure.png" style="height:34px;width:124px;">
                   <img src="@/assets/footer-imgs/pci.png" style="height:34px;width:70px;">
                   <img class="qr-pic" src="@/assets/footer-imgs/qr.png" style="height:35px;width:35px;">

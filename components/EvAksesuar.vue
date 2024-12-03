@@ -3,7 +3,7 @@
     <div class="text-container" align="left" style="margin: 40px 98px 30px 98px">
         <h2 style="padding-bottom:20px ; ">Yeni yılı aksesuarlarla karşılayın</h2>
         <p style="padding-bottom:15px ;font-size: 0.85rem;">İndirimli yeni yıl ürünlerimizi keşfetmeye başlayın. Çam ağacınızın üzerini süsleyebilir, yeni yıl sofranızı mumlarla özelleştirebilirsiniz.</p>
-        <v-btn rounded="xl" variant="outlined" class="text-none hovering">
+        <v-btn rounded="xl" outlined class="text-none hovering">
           Tüm indirimli yılbaşı ürünleri için tıklayın
         </v-btn>
     </div>
@@ -64,7 +64,7 @@
                 500 TL Altı Yılbaşı dekorasyon <br> ürünleri
                 </div>
                 <div style="padding-top: 20px;">
-                <v-btn size="x-large" icon="mdi-arrow-right"></v-btn>
+                <v-btn size="x-large" icon="mdi-arrow-right"><v-icon>mdi-arrow-right</v-icon></v-btn>
                 </div>
             </v-col>
 
@@ -80,7 +80,7 @@
                 1.000 TL Altı Yılbaşı dekorasyon <br> ürünleri
                 </div>
                 <div style="padding-top: 20px;">
-                    <v-btn size="x-large" icon="mdi-arrow-right"></v-btn>
+                    <v-btn size="x-large" icon="mdi-arrow-right"><v-icon>mdi-arrow-right</v-icon></v-btn>
                  </div>
             </v-col>
 
@@ -96,7 +96,7 @@
                 1.500 TL Altı Yılbaşı dekorasyon <br> ürünleri
                 </div>
                 <div style="padding-top: 20px;">
-                    <v-btn size="x-large" icon="mdi-arrow-right"></v-btn>
+                    <v-btn size="x-large" icon="mdi-arrow-right"><v-icon>mdi-arrow-right</v-icon></v-btn>
                 </div>
             </v-col>
         </v-row>

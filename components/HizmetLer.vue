@@ -1,22 +1,23 @@
 <template>
   <div>
-        <div class="text-container" align="left" style="margin: 70px 98px 30px 98px">
-        <h2 style="padding-bottom:20px ; ">Hizmetler</h2>
+    <div class="text-container" align="left" style="margin: 70px 98px 30px 98px">
+      <h2 style="padding-bottom:20px ; ">Hizmetler</h2>
     </div>
 
     <v-sheet class="mx-auto" elevation="0" max-width="100%" style="margin-bottom: 60px;">
-    <v-slide-group v-model="model" show-arrows style="margin-left: 40px; background: transparent;">
-      <v-slide-group-item v-for="(image, index) in images" :key="index">
-        <v-card :class="['ma-2']" height="320.453" width="240.5" style="border-radius:0; background: transparent; box-shadow: none;">
-          <div class="d-flex fill-height align-center justify-center">
-            <v-img :src="image.src" :alt="'Image ' + (index + 1)" height="100%" width="100%" cover></v-img>
-            <v-btn class="image-button text-none" @click="buttonClick(index)" rounded="xl">{{ image.label }}</v-btn>
-          </div>
-        </v-card>
-      </v-slide-group-item>
-    </v-slide-group>
-    <v-slider thumb-size="0" rounded="xs" style="margin-left: 98px; max-width: 89%"></v-slider>
-  </v-sheet>
+      <v-slide-group v-model="model" show-arrows style="margin-left: 40px; background: transparent;">
+        <v-slide-group-item v-for="(image, index) in images" :key="index">
+          <v-card :class="['ma-2']" height="320.453" width="240.5" style="border-radius:0; background: transparent; box-shadow: none;">
+            <div class="d-flex fill-height align-center justify-center">
+              <v-img :src="image.src" :alt="'Image ' + (index + 1)" height="100%" width="100%" cover></v-img>
+              <v-btn class="image-button text-none" @click="buttonClick(index)" rounded="xl">{{ image.label }}</v-btn>
+            </div>
+          </v-card>
+        </v-slide-group-item>
+      </v-slide-group>
+      <v-slider thumb-size="0" rounded="xs" style="margin-left: 98px; max-width: 89%"></v-slider>
+    </v-sheet>
+
 </div>
 </template>
 
@@ -36,7 +37,6 @@ export default {
       { src: require('@/assets/hizmetler-imgs/anasayfa-hizmetler-dikis.png'), label: 'Dikiş Hizmeti' },
       { src: require('@/assets/hizmetler-imgs/anasayfa-hizmetler-urun-toplama.png'), label: 'Ürün Toplama ve Nakliye Hizmeti' },
       { src: require('@/assets/hizmetler-imgs/anasayfa-hizmetler-yedek-parca.png'), label: 'Yedek Parça' },
-
     ],
   }),
   methods: {

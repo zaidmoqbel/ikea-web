@@ -36,7 +36,7 @@ export default {
               { name: "İyi Fikirler", path: '/'},
               { name: "Evde Güvenlik", path: '/'},
               { name: "Sipariş Takibi", path: '/'},
-              { name: "Bize Ulaşın", path: '/'},
+              { name: "Bize Ulaşın", path: '/bizeulasin'},
               { name: "Müşteri Memnuniyeti Anketi", path: '/'},
               { name: "Sosyal Sorumluluk", path: '/'},
               { name: "IKEA Aile Kart", path: '/'},

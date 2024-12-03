@@ -6,7 +6,7 @@
                                                             kurmanıza yardımcı olacak sofra ürünlerini tek bir yerde
                                                             depolayabileceğiniz HEMNES vitrin sayesinde sevdiklerinizle
                                                             birlikte vakit geçirmeye odaklanabilirsiniz.</p>
-        <v-btn rounded="xl" variant="outlined" class="text-none hovering">
+        <v-btn rounded="xl" outlined class="text-none hovering">
             Tüm yemek odası mobilyalarını inceleyin
         </v-btn>
     </div>

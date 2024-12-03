@@ -22,7 +22,7 @@
                         persistent-hint
                         row-height="15"
                         rows="1"
-                        variant="outlined"
+                        outlined
                         auto-grow
                         :placeholder="isHovered || isFocused ? '___ ___ __ __' : ''"
                         @mouseenter="isHovered = true"
@@ -81,11 +81,6 @@ export default {
   line-height: 45px;
   color: #141414;
   font-weight: bold;
-}
-
-.email-box {
-  width: 85%;
-
 }
 
 .yardim {

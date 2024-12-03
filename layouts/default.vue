@@ -23,7 +23,6 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar
-      :clipped-left="clipped"
       fixed
       app
     >
@@ -82,8 +81,22 @@ export default {
           title: 'İletişim Formu',
           to: '/İletisimFormu'
         },
+        {
+          icon: 'mdi-message-alert',
+          title: 'Müşteri Memnuniyeti ',
+          to: '/memnuyiet'
+        },
+        {
+          icon: 'mdi-sofa',
+          title: 'Kanepler ',
+          to: '/Kanepler'
+        },
       ],
     }
   }
 }
 </script>
+
+<style>
+@import url(https://db.onlinewebfonts.com/c/2b9a54453c1a3cbc651c0788ade94e4a?family=Noto+IKEA+Latin+Regular);
+</style>

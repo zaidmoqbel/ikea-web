@@ -1,7 +1,7 @@
 <template>
   <div class="nav-bar" style="padding: 0;">
     <v-app-bar height="fit-content" absolute style="box-shadow: none;">
-      <v-app-bar-nav-icon @click="navigateToAnotherPage" location="left" class="menu-drawer" style="left: 50px; top: 15px;" ></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click="navigateToAnotherPage" location="left" class="menu-drawer" style="left: 50px; bottom:15px" ></v-app-bar-nav-icon>
       <v-container style="padding-top: 10px;">
         <nav class="links_navbar" style="margin-left: 70px;">
           <ul class="links d-flex text-black"
@@ -29,7 +29,7 @@
         </nav>
         <v-row align="center">
           <v-col cols="2">
-           <router-link to="/"><img src="@/assets/header-imgs/ikea_logo.png.png" alt="ikea logo" /></router-link>
+           <router-link to="/"><img src="@/assets/header-imgs/ikea_logo.png.png" alt="ikea logo" style="padding-left: 40px;" /></router-link>
           </v-col>
           <v-col cols="6">
             <div class="search-input-container" style="width: 90%; position: relative;">
@@ -48,7 +48,7 @@
                 v-if="!isFocused && !searchQuery"
                 src="@/assets/header-imgs/search.png"
                 alt="search icon"
-                style="left: 10px; top: 50%; transform: translateY(-50%);"
+                class="search-icon"
                 width="25px"
               />
               <span
@@ -83,12 +83,12 @@
         <v-row class="mt-2">
           <v-col>
             <ul class="links d-flex text-black" style="list-style: none; font-weight: 550;">
-              <li style="padding-left: 30px; font-weight:600">Ürünler</li>
-              <li style="padding-left: 30px; font-weight:600">Odalar</li>
+              <NuxtLink to="/sidebar" style="text-decoration: none;color:black"><li style="padding-left: 30px; font-weight:600">Ürünler</li></NuxtLink>
+              <li style="padding-left: 30px; font-weight:600;color:black">Odalar</li>
               <li style="color: red;padding-left: 30px; font-weight:600">Fırsat Günleri</li>
               <li style="color: green; padding-left: 30px; font-weight:600">Yılbaşı</li>
               <li style="color: orange; padding-left:  30px; font-weight:600">YENİ</li>
-              <li style="padding-left: 30px; font-weight:600">İyi Fikirler</li>
+              <li style="padding-left: 30px; font-weight:600;color:black">İyi Fikirler</li>
             </ul>
           </v-col>
         </v-row>
@@ -126,8 +126,8 @@ export default {
         { name: 'IKEA Kurumsal Satış', path: '/kurumsal-satis' },
         { name: 'İsveç Restoranı', path: '/restoran' },
         { name: 'Sipariş Takibi', path: '/siparis-takibi' },
-        { name: 'Bize Ulaşın', path: '/bize-ulasin' },
-        { name: 'Müşteri Memnuniyet Anketi', path: '/memnuniyet-anketi' },
+        { name: 'Bize Ulaşın', path: '/bizeulasin' },
+        { name: 'Müşteri Memnuniyet Anketi', path: '/memnuyiet' },
         { name: 'Stok Sorgula', path: '/stok-sorgula' },
         { name: 'İade/Değişim Talebi', path: '/iade-degisim' },
       ],
@@ -166,10 +166,9 @@ export default {
   border-radius: 30px;
   background-color: #FAF9F6;
   outline: none;
-  padding: 12px;
+  padding: 12px 12px 12px 45px;
   color: grey;
 }
-
 
 .search-input:hover {
   color: white;
@@ -183,6 +182,16 @@ export default {
   color: black;
 }
 
+.search-icon {
+  position: absolute;
+  left: 13px;
+  top: 21%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color;
+}
 .close-icon {
   position: absolute;
   left: 13px;

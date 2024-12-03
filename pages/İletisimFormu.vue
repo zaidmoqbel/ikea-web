@@ -21,7 +21,7 @@
           <v-select
             v-model="uppvalue"
             :items="uppitems"
-            variant="outlined"
+            outlined
             style="margin-right: 160px;margin-left: -80px;"
             item-color="#0058a3"
             @change="resetValue2"
@@ -37,7 +37,7 @@
           <v-select
             v-model="uppvalue2"
             :items="filteredItems2"
-            variant="outlined"
+            outlined
             style="margin-right: 160px;margin-left: -80px;"
             item-color="#0058a3"
           ></v-select>
@@ -54,7 +54,7 @@
                 <v-select
                   v-model="value3"
                   :items="currentItems"
-                  variant="outlined"
+                  outlined
                   item-color="#0058a3"
                 ></v-select>
               </v-col>
@@ -63,7 +63,7 @@
                 <v-select
                   v-model="magazasec"
                   :items="magazalar"
-                  variant="outlined"
+                  outlined
                   item-color="#0058a3"
                 ></v-select>
               </v-col>
@@ -71,7 +71,7 @@
             <v-textarea
               v-model="comment"
               label="*Yorumlarınız"
-              variant="outlined"
+              outlined
               style="width:70%"
               :disabled= "value3 === '*Konu seçiniz'"
             ></v-textarea>
@@ -82,7 +82,7 @@
                 <v-select
                   v-model="value3"
                   :items="currentItems"
-                  variant="outlined"
+                  outlined
                   item-color="#0058a3"
                 ></v-select>
               </v-col>
@@ -91,7 +91,7 @@
               v-model="orderNumber"
               row-height="15"
               rows="1"
-              variant="outlined"
+              outlined
               auto-grow
               placeholder="*Sipariş Numaranız"
               @keypress="onlyAllowNumbers"
@@ -102,7 +102,7 @@
             <v-textarea
               v-model="comment"
               label="*Yorumlarınız"
-              variant="outlined"
+              outlined
               style="width: 70%;"
               :disabled= "value3 === '*Konu seçiniz'"
             ></v-textarea>
@@ -117,7 +117,7 @@
                     <v-textarea
                         row-height="15"
                         rows="1"
-                        variant="outlined"
+                        outlined
                         auto-grow
                         placeholder="*Ad"
                         style="margin-left: 150px; width: 70%;"
@@ -126,7 +126,7 @@
                     <v-textarea
                         row-height="15"
                         rows="1"
-                        variant="outlined"
+                        outlined
                         auto-grow
                         placeholder="*Cep Telefonu (Başında 0 olmadan giriniz.)"
                         @keypress="onlyAllowNumbers"
@@ -136,14 +136,14 @@
                     <v-select
                         v-model="value2"
                         :items="items2"
-                        variant="outlined"
+                        outlined
                         style="margin-left: 150px;margin-right: 48px;"
                         item-color="#0058a3"
                     ></v-select>
                     <v-textarea
                         row-height="15"
                         rows="1"
-                        variant="outlined"
+                        outlined
                         auto-grow
                         placeholder="IKEA Aile Kart"
                         @keypress="onlyAllowNumbers"
@@ -257,7 +257,7 @@
                     <v-textarea
                         row-height="15"
                         rows="1"
-                        variant="outlined"
+                        outlined
                         auto-grow
                         placeholder="*Soyad"
                         style=" width: 70%;"
@@ -265,7 +265,7 @@
                     <v-textarea
                         row-height="15"
                         rows="1"
-                        variant="outlined"
+                        outlined
                         auto-grow
                         placeholder="*E-Posta"
                         style="width: 70%;"
@@ -273,7 +273,7 @@
                     <v-select
                         v-model="value2"
                         :items="items2"
-                        variant="outlined"
+                        outlined
                         style="margin-right: 198px;"
                         item-color="#0058a3"
                     ></v-select>
@@ -326,13 +326,13 @@
       photoUploadChecked:false,
       agreeTerms:false,
       file:null,
-    }),computed: {
+    }),
+    computed: {
     filteredItems2() {
-      // Return the options for the second select based on the first select
-      return this.uppitems2[this.uppvalue] || []; // Return an empty array if no options found
+      return this.uppitems2[this.uppvalue] || [];
     },
     currentItems() {
-      return this.items[this.uppvalue][this.uppvalue2] || []; // Return an empty array if no options found
+      return this.items[this.uppvalue][this.uppvalue2] || [];
     },
     isShoppingChannelSelected() {
       return this.uppvalue === 'Mağazadan Alışveriş';
