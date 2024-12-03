@@ -35,7 +35,7 @@
             <v-btn
             class="image-button text-none"
             @click="buttonClick(index)"
-            rounded="xl"
+            rounded
             > {{ image.label }}
         </v-btn>
 

@@ -19,7 +19,7 @@
         <img src="../assets/musteri-memnuniyet/musteri-anketi.jpg" alt="musteri-anketi" style="width: 550px;padding-bottom:50px;">
         <v-btn
         outlined
-        rounded="xl"
+        rounded
         class="text-none"
         ><span class="text-btn">Geri Bildirim vermek için tıklayın</span></v-btn>
       </v-col>
@@ -28,7 +28,7 @@
         <img src="../assets/musteri-memnuniyet/message.jpg" alt="message" style="width: 550px;padding-bottom:50px;">
         <v-btn
         outlined
-        rounded="xl"
+        rounded
         class="text-none"
         ><span class="text-btn">Bize ulaşmak için tıklayın</span></v-btn>
       </v-col>

@@ -4,7 +4,7 @@
     <nav class="breadcrumb">
       <ul>
         <li><a href="/">Ana Sayfa </a></li>
-        <li><a href="/bizeulasin">Ürünler </a></li>
+        <li><a href="/sidebar">Ürünler </a></li>
         <li><a href="">Mobilyalar </a></li>
         <li><span>Kanepeler</span></li>
       </ul>

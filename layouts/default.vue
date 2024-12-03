@@ -27,7 +27,6 @@
       app
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-toolbar-title v-text="title" />
       <v-spacer />
 
     </v-app-bar>
@@ -90,6 +89,11 @@ export default {
           icon: 'mdi-sofa',
           title: 'Kanepler ',
           to: '/Kanepler'
+        },
+        {
+          icon: 'mdi-food-fork-drink',
+          title: 'İsveç Restoran ',
+          to: '/restoran'
         },
       ],
     }

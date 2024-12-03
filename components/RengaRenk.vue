@@ -2,7 +2,7 @@
   <div>
   <div class="text-container" align="left" style="margin: 90px 98px 30px 98px">
     <h2 style="padding-bottom:30px ;">Rengarenk koleksiyonlarımız ile tanışmanızın zamanı geldi!</h2>
-    <v-btn rounded="xl" outlined class="text-none hovering" @click="buttonClick">
+    <v-btn rounded outlined class="text-none hovering" @click="buttonClick">
       Tüm koleksiyonlar için tıklayın
     </v-btn>
   </div>

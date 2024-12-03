@@ -41,7 +41,7 @@ export default {
               { name: "Sosyal Sorumluluk", path: '/'},
               { name: "IKEA Aile Kart", path: '/'},
               { name: "IKEA Kurumsal Satış", path: '/'},
-              { name: "İsveç Restoranı", path: '/'},
+              { name: "İsveç Restoranı", path: '/restoran'},
           ]
       };
   },

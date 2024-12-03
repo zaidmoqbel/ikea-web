@@ -134,8 +134,8 @@
                         style="margin-left: 150px; width: 70%;"
                     ></v-textarea>
                     <v-select
-                        v-model="value2"
-                        :items="items2"
+                        placeholder="*il"
+                        :items="city"
                         outlined
                         style="margin-left: 150px;margin-right: 48px;"
                         item-color="#0058a3"
@@ -249,7 +249,7 @@
                 <p style="text-align: left; margin-left: 140px">* ile belirtilen alanların doldurulması zorunludur.</p><br>
                 <p style="text-align: left; margin-left: 150px; font-size: 14px;">IKEA Çağrı Merkezi'ne, haftanın her günü 09:00-22:00</p>
                 <p style="text-align: left; margin-left: 150px; font-size: 14px;">saatleri arasında 444 4 532 nolu telefondan ulaşabilirsiniz.</p>
-                <v-btn rounded="xl" size="large" style="width: 172px;height: 54px;margin-bottom: 50px;margin-left: 1000px;" class="text-none " color="#0058a3" dark>Gönder</v-btn>
+                <v-btn rounded size="large" style="width: 172px;height: 54px;margin-bottom: 50px;margin-left: 1000px;" class="text-none " color="#0058a3" dark>Gönder</v-btn>
 
               </v-col>
 
@@ -271,8 +271,8 @@
                         style="width: 70%;"
                     ></v-textarea>
                     <v-select
-                        v-model="value2"
-                        :items="items2"
+                        placeholder="*ilçe"
+                        :items="district"
                         outlined
                         style="margin-right: 198px;"
                         item-color="#0058a3"
@@ -320,6 +320,26 @@
           'Sipariş Hakkında': ['İade Talebi', 'Değişim Talebi', 'Sipariş Düzenleme', 'Sipariş İptali', 'Montaj İptali'],
         },
       },
+      city:[
+  "Adana", "Adıyaman", "Afyonkarahisar", "Ağrı", "Aksaray", "Amasya", "Ankara",
+  "Antalya", "Ardahan", "Artvin", "Aydın", "Balıkesir", "Bartın", "Batman",
+  "Bayburt", "Bilecik", "Bingöl", "Bitlis", "Bolu", "Burdur", "Bursa", "Çanakkale",
+  "Çankırı", "Çorum", "Denizli", "Diyarbakır", "Düzce", "Edirne", "Elazığ",
+  "Erzincan", "Erzurum", "Eskişehir", "Gaziantep", "Giresun", "Gümüşhane", "Hakkari",
+  "Hatay", "Iğdır", "Isparta", "İstanbul", "İzmir", "Kahramanmaraş", "Karabük",
+  "Karaman", "Kars", "Kastamonu", "Kayseri", "Kırıkkale", "Kırklareli", "Kırşehir",
+  "Kilis", "Kocaeli", "Konya", "Kütahya", "Malatya", "Manisa", "Mardin", "Mersin",
+  "Muğla", "Muş", "Nevşehir", "Niğde", "Ordu", "Osmaniye", "Rize", "Sakarya",
+  "Samsun", "Şanlıurfa", "Siirt", "Sinop", "Şırnak", "Sivas", "Tekirdağ",
+  "Tokat", "Trabzon", "Tunceli", "Uşak", "Van", "Yalova", "Yozgat", "Zonguldak"
+],
+      district:[
+  "Adalar", "Arnavutköy", "Ataşehir", "Avcılar", "Bağcılar", "Bahçelievler", "Bakırköy",
+  "Başakşehir", "Bayrampaşa", "Beşiktaş", "Beykoz", "Beylikdüzü", "Beyoğlu", "Büyükçekmece",
+  "Çatalca", "Çekmeköy", "Esenler", "Esenyurt", "Eyüpsultan", "Fatih", "Gaziosmanpaşa",
+  "Kadıköy", "Kağıthane", "Kartal", "Küçükçekmece", "Maltepe", "Pendik", "Sancaktepe",
+  "Silivri", "Sultanbeyli", "Sultangazi", "Şile", "Şişli", "Tuzla", "Üsküdar", "Zeytinburnu"
+],
       orderNumber: '',
       checkbox:false,
       dialog:false,

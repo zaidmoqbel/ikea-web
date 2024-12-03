@@ -35,7 +35,7 @@
                     ></v-textarea>
 
 
-              <v-btn rounded="xl" size="large" style="width: 384.656px;height: 54px; margin-top: 40px;" class="text-none " color="#0058a3" dark>Devam Et</v-btn>
+              <v-btn rounded size="large" style="width: 384.656px;height: 54px; margin-top: 40px;" class="text-none " color="#0058a3" dark>Devam Et</v-btn>
               <div class="yardim">Yardıma İhtiyacım Var</div>
             </div>
             </v-col>

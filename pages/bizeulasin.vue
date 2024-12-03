@@ -89,12 +89,40 @@
                <v-col cols="9">
                  <h2>Alışveriş Adımları</h2>
 
+                 <v-expansion-panels style="padding-top: 25px;">
+                    <v-expansion-panel style="padding: 25px 0px 25px 15px;text-align: left;">
+                      <v-expansion-panel-text>
+                        Siparişime hediye kartı ekleyebiliyor muyum?
+                      </v-expansion-panel-text>
+                      <v-expansion-panel-title style="padding-left:220px;">
+                          <v-icon>mdi-plus</v-icon>
+                      </v-expansion-panel-title>
+                    </v-expansion-panel>
+                  </v-expansion-panels>
+                 <v-expansion-panels style="padding-top: 25px;">
+                    <v-expansion-panel style="padding: 25px 0px 25px 15px;text-align: left;padding-left: 15px;">
+                      <v-expansion-panel-text>
+                        İnternet mağazasından yapılan alışverişverişlerde neden 500 TL’nin altında sipariş veremiyorum ?
+                      </v-expansion-panel-text>
+                      <v-expansion-panel-title style="padding-left:440px">
+                          <v-icon>mdi-plus</v-icon>
+                      </v-expansion-panel-title>
+                    </v-expansion-panel>
+                  </v-expansion-panels>
+                 <v-expansion-panels style="padding-top: 25px;">
+                    <v-expansion-panel style="padding: 25px 0px 25px 15px;text-align: left;padding-left: 15px;">
+                      <v-expansion-panel-text>
+                        Aradığım bir ürünü web sitesinde nasıl bulabilirim?
+                      </v-expansion-panel-text>
+                      <v-expansion-panel-title style="padding-left:180px">
+                          <v-icon>mdi-plus</v-icon>
+                      </v-expansion-panel-title>
+                    </v-expansion-panel>
+                  </v-expansion-panels>
+
                </v-col>
              </v-row>
-
-
            </div>
-
 
            <div v-else-if="value === 'Mağazadan Alışveriş'" class="card" style="margin-top: 30px;">
              <div class="border-line"></div>
@@ -137,6 +165,37 @@
 
                <v-col cols="9">
                 <h2>Hizmetler</h2>
+
+                <v-expansion-panels style="padding-top: 25px;">
+                    <v-expansion-panel style="padding: 25px 0px 25px 15px;text-align: left;">
+                      <v-expansion-panel-text>
+                        IKEA Ürün Toplama ve Nakliye Hizmeti
+                      </v-expansion-panel-text>
+                      <v-expansion-panel-title style="padding-left:300px;">
+                          <v-icon>mdi-plus</v-icon>
+                      </v-expansion-panel-title>
+                    </v-expansion-panel>
+                  </v-expansion-panels>
+                 <v-expansion-panels style="padding-top: 25px;">
+                    <v-expansion-panel style="padding: 25px 0px 25px 15px;text-align: left;padding-left: 15px;">
+                      <v-expansion-panel-text>
+                        Mutfak Ölçüm Hizmeti
+                      </v-expansion-panel-text>
+                      <v-expansion-panel-title style="padding-left:420px">
+                          <v-icon>mdi-plus</v-icon>
+                      </v-expansion-panel-title>
+                    </v-expansion-panel>
+                  </v-expansion-panels>
+                 <v-expansion-panels style="padding-top: 25px;">
+                    <v-expansion-panel style="padding: 25px 0px 25px 15px;text-align: left;padding-left: 15px;">
+                      <v-expansion-panel-text>
+                        IKEA Nakliye Hizmeti
+                      </v-expansion-panel-text>
+                      <v-expansion-panel-title style="padding-left:440px">
+                          <v-icon>mdi-plus</v-icon>
+                      </v-expansion-panel-title>
+                    </v-expansion-panel>
+                  </v-expansion-panels>
 
                </v-col>
              </v-row>

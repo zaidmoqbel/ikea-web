@@ -10,7 +10,7 @@
         <v-card :class="['ma-2']" height="315.75" width="240.5" style="border-radius:0; background: transparent; box-shadow: none;">
           <div class="d-flex fill-height align-center justify-center">
             <v-img :src="image.src" :alt="'Image ' + (index + 1)" height="100%" width="100%" cover></v-img>
-            <v-btn class="image-button text-none" @click="buttonClick(index)" rounded="xl">{{ image.label }}</v-btn>
+            <v-btn class="image-button text-none" @click="buttonClick(index)" rounded>{{ image.label }}</v-btn>
           </div>
         </v-card>
       </v-slide-group-item>

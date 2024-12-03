@@ -6,7 +6,7 @@
                                                             kurmanıza yardımcı olacak sofra ürünlerini tek bir yerde
                                                             depolayabileceğiniz HEMNES vitrin sayesinde sevdiklerinizle
                                                             birlikte vakit geçirmeye odaklanabilirsiniz.</p>
-        <v-btn rounded="xl" outlined class="text-none hovering">
+        <v-btn rounded outlined class="text-none hovering">
             Tüm yemek odası mobilyalarını inceleyin
         </v-btn>
     </div>
@@ -26,7 +26,7 @@
             <h4>mutfak masası takımı,<br>beyaz</h4>
             <h3>9.995₺</h3>
             <v-btn
-              rounded="xl"
+              rounded
               size="large"
               class="text-none"
               base-color="#0058a3"
@@ -51,7 +51,7 @@
             <h4>vitrin, kırmızı vernikli-<br>açık kahverngi boyalı</h4>
             <h3>19.999₺</h3>
             <v-btn
-              rounded="xl"
+              rounded
               size="large"
               class="text-none"
               base-color="#0058a3"
