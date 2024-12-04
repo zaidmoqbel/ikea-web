@@ -6,6 +6,7 @@
       app
     >
       <v-list>
+        <img src="../static/ikea_logo.png" alt="ikea logo" style="margin-left: 80px;">
         <v-list-item
           v-for="(item, i) in items"
           :key="i"
@@ -14,7 +15,7 @@
           exact
         >
           <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
+            <v-icon style="color: #0058a3;">{{ item.icon }}</v-icon>
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title v-text="item.title" />
