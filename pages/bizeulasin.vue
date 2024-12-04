@@ -165,7 +165,6 @@
 
                <v-col cols="9">
                 <h2>Hizmetler</h2>
-
                 <v-expansion-panels style="padding-top: 25px;">
                     <v-expansion-panel style="padding: 25px 0px 25px 15px;text-align: left;">
                       <v-expansion-panel-text>
@@ -196,12 +195,9 @@
                       </v-expansion-panel-title>
                     </v-expansion-panel>
                   </v-expansion-panels>
-
                </v-col>
              </v-row>
            </div>
-
-
          </div>
 
  </div>
