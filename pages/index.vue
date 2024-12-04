@@ -1,6 +1,6 @@
 
 <template>
-  <div class="home">
+  <div class="home-page">
     <UpperBanner />
     <YilBasi />
     <VinterFint />
