@@ -1,6 +1,6 @@
 <template>
   <div>
-     <div class="text-container" align="left" style="margin: 80px 98px 30px 98px">
+     <div class="text-container" align="left" style="margin: 80px 98px 30px 0px">
         <h2 style="padding-bottom:20px ; ">Keyifli buluşmalar başlasın!</h2>
         <p style="padding-bottom:15px ;font-size: 0.83rem;">Geleneksel HAUGA yemek masası ve yemek sandalyeleri ile sofrayı
                                                             kurmanıza yardımcı olacak sofra ürünlerini tek bir yerde
@@ -11,7 +11,7 @@
         </v-btn>
     </div>
 
-    <v-row style="margin-left: 65px; margin-right: 25px;">
+    <v-row style=" margin-right: 25px;">
       <v-col cols="6">
         <div class="image-parent">
           <img
