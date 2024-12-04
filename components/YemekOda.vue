@@ -1,11 +1,11 @@
 <template>
   <div>
-  <div class="text-container" align="left" style="margin: 70px 98px 30px 98px">
+  <div class="text-container" align="left" style="margin: 70px 98px 30px 0px">
     <h2 style="padding-bottom:20px ; ">Yemek odanızı güzelleştirecek her şey burada!</h2>
   </div>
 
   <v-sheet class="mx-auto" elevation="0" max-width="100%">
-    <v-slide-group v-model="model" show-arrows style="margin-left: 40px; background: transparent;">
+    <v-slide-group v-model="model" show-arrows style="background: transparent;">
       <v-slide-group-item v-for="(image, index) in images" :key="index">
         <v-card :class="['ma-2']" height="315.75" width="240.5" style="border-radius:0; background: transparent; box-shadow: none;">
           <div class="d-flex fill-height align-center justify-center">
