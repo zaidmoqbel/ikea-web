@@ -1,7 +1,6 @@
 <template>
 
   <div class="page-container">
-
     <div class="header">
       <h2>IKEA Lezzetleri</h2>
       <p style="padding-top: 35px;font-size: 14px;">IKEA'da; İsveç'in modern lezzetlerini yerli tatlarla birleştirerek güvenilir, düşük fiyatlı ve iştah açıcı birçok seçenek sunuyoruz. İsveç mutfağının ikonik lezzetleri İsveç köftesinden, bademli keke, ızgara somondan sağlık ve sürdürülebilirlik tutkunu sebze köftelerine kadar herkes için birçok farklı önerimiz var. Birbirinden lezzetli yiyeceklerimizi tatmak için sizleri en yakın IKEA mağazasına bekleriz. Mağazalarımızdaki İsveç Restoranı veya İsveç Bistro'da tattığınız lezzetler ve çok daha fazlasını; çeşit çeşit kurabiyeler, çikolatalar, soslar, dondurulmuş gıda ürünleri ve diğer tüm lezzetlerimizi İsveç Gıda Marketi’nden alarak evinizde deneyebilirsiniz.</p>
