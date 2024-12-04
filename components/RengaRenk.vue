@@ -18,7 +18,6 @@
           </v-card>
         </v-slide-group-item>
       </v-slide-group>
-      <v-slider thumb-size="0" rounded="xs" style="margin-left: 98px; max-width: 89%"></v-slider>
     </v-sheet>
   </div>
 
