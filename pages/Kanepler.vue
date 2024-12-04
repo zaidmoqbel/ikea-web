@@ -161,7 +161,6 @@
             <v-card-subtitle class="text-body-2">
               <span class="current-price">{{ product.price }}₺</span>
             </v-card-subtitle>
-
             <v-btn icon color="blue" class="mt-1">
               <v-icon>mdi-cart</v-icon>
             </v-btn>
