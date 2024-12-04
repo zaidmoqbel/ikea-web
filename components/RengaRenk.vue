@@ -1,6 +1,6 @@
 <template>
   <div>
-  <div class="text-container" align="left" style="margin: 90px 98px 30px 98px">
+  <div class="text-container" align="left" style="margin: 90px 98px 30px 0px">
     <h2 style="padding-bottom:30px ;">Rengarenk koleksiyonlarımız ile tanışmanızın zamanı geldi!</h2>
     <v-btn rounded outlined class="text-none hovering" @click="buttonClick">
       Tüm koleksiyonlar için tıklayın
@@ -9,7 +9,7 @@
 
   <div class="image-container">
     <v-sheet class="mx-auto" elevation="0" max-width="100%">
-      <v-slide-group v-model="model" show-arrows style="margin-left: 40px; background: transparent;">
+      <v-slide-group v-model="model" show-arrows style="background: transparent;">
         <v-slide-group-item v-for="(image, index) in images" :key="index">
           <v-card :class="['ma-2']" height="555px" width="444px" style="border-radius:0; background: transparent; box-shadow: none;">
             <div class="d-flex fill-height align-center justify-center">
@@ -57,7 +57,6 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400&display=swap');
 
 .text-container {
   font-family: 'Noto IKEA Latin Regular', sans-serif;
@@ -69,7 +68,6 @@ export default {
 }
 
 .second-img-container {
-  margin-left: 95px;
   margin-right: 50px;
   margin-top: 60px;
 }
