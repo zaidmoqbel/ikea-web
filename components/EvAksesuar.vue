@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="text-container" align="left" style="margin: 40px 98px 30px 98px">
+    <div class="text-container" align="left" style="margin: 40px 98px 30px 0px">
         <h2 style="padding-bottom:20px ; ">Yeni yılı aksesuarlarla karşılayın</h2>
         <p style="padding-bottom:15px ;font-size: 0.85rem;">İndirimli yeni yıl ürünlerimizi keşfetmeye başlayın. Çam ağacınızın üzerini süsleyebilir, yeni yıl sofranızı mumlarla özelleştirebilirsiniz.</p>
         <v-btn rounded outlined class="text-none hovering">
@@ -13,7 +13,7 @@
 
             <v-col cols="6" md="6">
                 <div class="image-parent">
-                    <img src="../assets/dekorasyon-imgs/vinterfint-karisik-renkli-agac-susu.png" alt="" style="width: 455px; height: 663px; object-fit: cover; margin-left: 98px;">
+                    <img src="../assets/dekorasyon-imgs/vinterfint-karisik-renkli-agac-susu.png" alt="" style="width: 555px; height: 663px; object-fit: cover;">
                     <div class="info-box">
                       <h4 style="background-color: #FFC000; font-size:15px ;">FIRSAT GÜNLERİ</h4>
                         <h3>VINTERFINT</h3>
@@ -49,16 +49,16 @@
         </v-row>
     </div>
 
-    <div class="yilbasi-container" align="left" style="margin: 70px 98px 30px 98px">
+    <div class="yilbasi-container" align="left" style="margin: 70px 98px 30px 0px">
         <h2 style="padding-bottom:20px ;margin-bottom: 40px ">Yılbaşı hediye önerileri</h2>
-        <v-row class="boxes" justify="space-between" align="center" style="gap: 0px; margin-left: 0px;margin-right: -45px; ">
+        <v-row class="boxes" style="gap: 0px;">
             <v-col
                 cols="4"
                 class="inner-box"
                 :class="{ 'hovered': hoveredBox ===1 }"
                 @mouseover="hoveredBox = 1"
                 @mouseleave="hoveredBox = null"
-                style="background-color: #ab1818; height: 260px; width: 380px;"
+                style="background-color: #ab1818; height: 260px; width: 400px;"
                 >
                 <div>
                 500 TL Altı Yılbaşı dekorasyon <br> ürünleri
@@ -74,7 +74,7 @@
                 :class="{ 'hovered': hoveredBox ===2 }"
                 @mouseover="hoveredBox = 2"
                 @mouseleave="hoveredBox = null"
-                style="background-color: #0f4811; height: 260px; width: 380px;"
+                style="background-color: #0f4811; height: 260px; width: 400px;"
                 >
                 <div>
                 1.000 TL Altı Yılbaşı dekorasyon <br> ürünleri
@@ -90,7 +90,7 @@
                 :class="{ 'hovered': hoveredBox ===3 }"
                 @mouseover="hoveredBox = 3"
                 @mouseleave="hoveredBox = null"
-                style="background-color: #ab1818; height: 260px; width: 380px;"
+                style="background-color: #ab1818; height: 260px; width: 400px;"
                 >
                 <div>
                 1.500 TL Altı Yılbaşı dekorasyon <br> ürünleri
