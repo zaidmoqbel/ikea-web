@@ -1,6 +1,6 @@
 <template>
     <div class="features">
-        <h2 align="left" style="margin: 95px 98px 30px 98px; color: #171717;">Yılbaşı ışıltısını evinize getirin</h2>
+        <h2 align="left" style="margin: 95px 0px 30px 0px; color: #171717;">Yılbaşı ışıltısını evinize getirin</h2>
         <div class="parent">
         <v-container>
             <v-row>
