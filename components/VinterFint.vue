@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="text-container" align="left" style="margin: 70px 98px 30px 98px">
+    <div class="text-container" align="left" style="margin: 70px 98px 30px 0px">
         <h2 style="padding-bottom:20px ; ">VINTERFINT Koleksiyonu ile evinize sıcaklık katın</h2>
         <p style="padding-bottom:15px ;font-size: 0.83rem;">Karşınızda her ev için ideal olan VINTERFINT yılbaşı dekorasyonu ürünleri. Eski süslere veda edin ve daha eğlenceli yılbaşı dekorasyon ürünlerine merhaba deyin. En iyi kısmı ise düzgün bir şekilde depolandığında bir sonraki yıl da kullanabilirsiniz!</p>
         <v-btn rounded class="text-none hovering" outlined>
@@ -15,7 +15,7 @@
                     <video
                     src="../assets/main-imgs/cam-agaci-video.mp4"
                     controls
-                    style="width: 455px; height: 663px; object-fit: cover; margin-left: 98px;"
+                    style="width: 555px; height: 663px; object-fit: cover;"
                     loop
                     muted
                     ></video>
