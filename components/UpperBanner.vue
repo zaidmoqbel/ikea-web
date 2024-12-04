@@ -82,9 +82,6 @@ export default {
 <style>
  .img-slider {
   padding-top: 100px;
-  width: 3200;
-  height: 1250;
-  max-width: 85%;
   position: relative;
   margin: auto;
   overflow: hidden;
