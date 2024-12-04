@@ -1,4 +1,5 @@
 <template>
+
   <div class="nav-bar" style="padding: 0;">
     <v-app-bar height="fit-content" absolute style="box-shadow: none;">
       <v-app-bar-nav-icon @click="navigateToAnotherPage" location="left" class="menu-drawer" style="left: 50px; bottom:15px" ></v-app-bar-nav-icon>
