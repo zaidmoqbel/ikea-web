@@ -12,11 +12,10 @@ export const getters = {
 };
 
 export const mutations = {
+  SET_ITEMS(state, items) {
+    state.items = items;
+  },
   ADD_ITEM(state, product) {
-    if (!product || !product.id) {
-      console.error("Invalid product passed to ADD_ITEM:", product);
-      return;
-    }
     const existingItem = state.items.find(item => item.id === product.id);
     if (existingItem) {
       existingItem.quantity += 1;
@@ -35,43 +34,39 @@ export const mutations = {
       state.items = state.items.filter(item => item.id !== productId);
     }
   },
-  INCREASE_QUANTITY(state, productId) {
-    const item = state.items.find(item => item.id === productId);
-    if (item) {
-      item.quantity += 1;
-    }
-  },
-  DECREASE_QUANTITY(state, productId) {
-    const item = state.items.find(item => item.id === productId);
-    if (item && item.quantity > 1) {
-      item.quantity -= 1;
-    } else if (item) {
-      state.items = state.items.filter(item => item.id !== productId);
-    }
-  },
   CLEAR_CART(state) {
     state.items = [];
   },
 };
 
 export const actions = {
-  addItem({ commit }, product) {
-    console.log('Adding product:', product);
+  loadCart({ commit }) {
+    if (process.client) {
+      const savedCart = localStorage.getItem('cart');
+      if (savedCart) {
+        commit('SET_ITEMS', JSON.parse(savedCart));
+      }
+    }
+  },
+  saveCart({ state }) {
+    if (process.client) {
+      localStorage.setItem('cart', JSON.stringify(state.items));
+    }
+  },
+  addItem({ commit, dispatch }, product) {
     commit('ADD_ITEM', product);
+    dispatch('saveCart');
   },
-  removeItem({ commit }, productId) {
+  removeItem({ commit, dispatch }, productId) {
     commit('REMOVE_ITEM', productId);
+    dispatch('saveCart');
   },
-  updateQuantity({ commit }, { productId, quantity }) {
+  updateQuantity({ commit, dispatch }, { productId, quantity }) {
     commit('UPDATE_QUANTITY', { productId, quantity });
+    dispatch('saveCart');
   },
-  increaseQuantity({ commit }, productId) {
-    commit('INCREASE_QUANTITY', productId);
-  },
-  decreaseQuantity({ commit }, productId) {
-    commit('DECREASE_QUANTITY', productId);
-  },
-  clearCart({ commit }) {
+  clearCart({ commit, dispatch }) {
     commit('CLEAR_CART');
+    dispatch('saveCart');
   },
 };
