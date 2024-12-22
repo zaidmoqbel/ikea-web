@@ -2,18 +2,18 @@
 
   <v-container class="py-5">
     <v-row dense justify="space-between">
-      <v-col cols="12" sm="6" md="3" v-for="(product, index) in products" :key="index">
+      <v-col cols="12" sm="6" md="3" v-for="(product, index) in products" :key="product.id">
 
         <v-card class="hover-card" elevation="0">
           <div class="image-wrapper">
             <v-img
-              :src="product.image.default"
+              :src="product.image1.default"
               alt="Default img"
               class="default-img"
               contain
             ></v-img>
             <v-img
-              :src="product.image.hover"
+              :src="product.image1.hover"
               alt="Hover img"
               class="hover-img"
               contain
@@ -24,7 +24,7 @@
             <h3 class="card-title">{{ product.title }}</h3>
             <p class="card-description">{{ product.description }}</p>
             <p class="price">{{ product.price }}₺</p>
-            <v-btn style="background-color: #0058a3;" icon><v-icon color="white">mdi-basket-plus</v-icon></v-btn>
+            <v-btn style="background-color: #0058a3;" icon @click="addToCart(product)"><v-icon color="white">mdi-basket-plus</v-icon></v-btn>
 
             <div v-if="product.options && product.options.length" class="more-options">
               <p>Daha fazla seçenek</p>
@@ -57,10 +57,12 @@ export default {
     return {
       products: [
         {
+          id: 16,
           title: "HYLTARP",
           description: "2'li kanepe ve uzanma koltuğu",
           price: "39.999",
-          image: {
+          image:  require('@/assets/kanepler-imgs/products-imgs/p1.png'),
+          image1: {
             default: require('@/assets/kanepler-imgs/products-imgs/p1.png'),
             hover: require('@/assets/kanepler-imgs/products-imgs/p1-h.png'),
           },
@@ -73,10 +75,12 @@ export default {
           ],
         },
         {
+          id: 17,
           title: "KIVIK",
           description: "2'li kanepe kılıfı",
           price: "5.499",
-          image: {
+          image: require('@/assets/kanepler-imgs/products-imgs/p2.png'),
+          image1: {
             default: require('@/assets/kanepler-imgs/products-imgs/p2.png'),
             hover: require('@/assets/kanepler-imgs/products-imgs/p2-h.png'),
           },
@@ -88,20 +92,24 @@ export default {
           ],
         },
         {
+          id: 18,
           title: "AFJALL",
           description: "Çift kişilik yatak, 140x200 cm",
           price: "5.499",
-          image: {
+          image: require('@/assets/kanepler-imgs/products-imgs/p3.png'),
+          image1: {
             default: require('@/assets/kanepler-imgs/products-imgs/p3.png'),
             hover: require('@/assets/kanepler-imgs/products-imgs/p3-h.png'),
           },
           options: []
         },
         {
+          id: 19,
           title: "VISKAFORS",
           description: "2'li Kanepe",
           price: "35.999",
-          image: {
+          image: require('@/assets/kanepler-imgs/products-imgs/p4.png'),
+          image1: {
             default: require('@/assets/kanepler-imgs/products-imgs/p4.png'),
             hover: require('@/assets/kanepler-imgs/products-imgs/p4-h.png'),
           },
@@ -112,10 +120,12 @@ export default {
           ],
         },
         {
+          id: 20,
           title: "RÖDEBY ",
           description: "kolçak tepsisi",
           price: "399",
-          image: {
+          image: require('@/assets/kanepler-imgs/products-imgs/r2-p1.png'),
+          image1: {
             default: require('@/assets/kanepler-imgs/products-imgs/r2-p1.png'),
             hover: require('@/assets/kanepler-imgs/products-imgs/r2-p1-h.png'),
           },
@@ -125,10 +135,12 @@ export default {
           ],
         },
         {
+          id: 21,
           title: "EKENÄSET ",
           description: "3'lü kanepe",
           price: "17.999",
-          image: {
+          image: require('@/assets/kanepler-imgs/products-imgs/r2-p2.png'),
+          image1: {
             default: require('@/assets/kanepler-imgs/products-imgs/r2-p2.png'),
             hover: require('@/assets/kanepler-imgs/products-imgs/r2-p2-h.png'),
           },
@@ -138,20 +150,24 @@ export default {
           ],
         },
         {
+          id: 22,
           title: "AFJALL ",
           description: "çift kişilik yatak, 140x200 cm",
           price: "5.499",
-          image: {
+          image: require('@/assets/kanepler-imgs/products-imgs/r2-p3.png'),
+          image1: {
             default: require('@/assets/kanepler-imgs/products-imgs/r2-p3.png'),
             hover: require('@/assets/kanepler-imgs/products-imgs/r2-p3-h.png'),
           },
           options: [],
         },
         {
+          id: 23,
           title: "KIVIK ",
           description: "2'li kanepe kılıfı",
           price: "5.499",
-          image: {
+          image:require('@/assets/kanepler-imgs/products-imgs/r2-p4.png'),
+          image1: {
             default: require('@/assets/kanepler-imgs/products-imgs/r2-p4.png'),
             hover: require('@/assets/kanepler-imgs/products-imgs/r2-p4-h.png'),
           },
@@ -165,6 +181,20 @@ export default {
       ],
     };
   },
+  props: ['product'],
+      methods: {
+        addToCart(product) {
+        console.log('Product being added to cart:', product);
+        this.$store.dispatch('cart/addItem', product);
+
+      },
+        scrollToSection() {
+          const target = document.getElementById('target-section');
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth'});
+          }
+        },
+      },
 };
 
 </script>
