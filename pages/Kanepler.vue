@@ -110,7 +110,7 @@
               <span class="current-price">{{ product.price }}₺</span>
             </v-card-subtitle>
 
-            <v-btn style="background-color: #0058a3;" icon @click="addToCart(product)"><v-icon color="white">mdi-basket-plus</v-icon></v-btn>
+            <v-btn style="background-color: #0058a3;" icon @click="toggleCartIcon(product)"><v-icon color="white">{{ product.isAdded ? "mdi-check" : "mdi-basket-plus" }}</v-icon></v-btn>
 
           </v-card>
 
@@ -160,7 +160,7 @@
             <v-card-subtitle class="text-body-2">
               <span class="current-price">{{ product.price }}₺</span>
             </v-card-subtitle>
-            <v-btn style="background-color: #0058a3;" icon @click="addToCart(product)"><v-icon color="white">mdi-basket-plus</v-icon></v-btn>
+            <v-btn style="background-color: #0058a3;" icon @click="toggleCartIcon(product)"><v-icon color="white">{{ product.isAdded ? "mdi-check" : "mdi-basket-plus" }}</v-icon></v-btn>
 
           </v-card>
         </v-slide-item>
@@ -246,6 +246,16 @@
       <products />
     </div>
 
+    <div
+    v-if="popup.visible"
+    class="popup-notification"
+    :style="{ right: '100px', bottom: '450px', top: '100px',left: '900px' }"
+  >
+    {{ popup.message }}
+    <v-btn text @click="popup.visible = false" style="color: white;  font-size: 0.6rem;" class="text-none goster" >Göster</v-btn>
+    <v-btn text @click="popup.visible = false" style="color: white;  font-size: 0.6rem;">X</v-btn>
+  </div>
+
   </div>
 </template>
 
@@ -253,9 +263,15 @@
 export default {
   data() {
     return {
+      popup: {
+      visible: false,
+      message: '',
+    },
+      currentIcon: "mdi-basket-plus",
       hoveredCard: null,
       products: [
         {
+          isAdded: false,
           id: 1,
           title: "SVARTPOPPEL",
           description: "kırlent kılıfı, gri-yeşil",
@@ -267,6 +283,7 @@ export default {
           tagColor: "white"
         },
         {
+          isAdded: false,
           id: 2,
           title: "KLIPPOXEL",
           description: "örtü, mavi",
@@ -278,6 +295,7 @@ export default {
           tagColor: "orange",
         },
         {
+          isAdded: false,
           id:3,
           title: "ODDNY",
           description: "kırlent kılıfı, kırık beyaz-siyah nokta deseni",
@@ -289,6 +307,7 @@ export default {
           tagColor: "yellow",
         },
         {
+          isAdded: false,
           id:4,
           title: "GINSTSÄCKMAL",
           description: "örtü, siyah-beyaz",
@@ -300,6 +319,7 @@ export default {
           tagColor: "orange",
         },
         {
+          isAdded: false,
           id:5,
           title: "SVÄRDTÅG",
           description: "kırlent kılıfı, koyu mavi",
@@ -311,6 +331,7 @@ export default {
           tagColor: "white",
         },
         {
+          isAdded: false,
           id:6,
           title: "SVARTFRYLE",
           description: "örtü, koyu sarı-açık gri",
@@ -322,6 +343,7 @@ export default {
           tagColor: "orange",
         },
         {
+          isAdded: false,
           id:7,
           title: "SPIKKLUBBA",
           description: "kırlent kılıfı, kırık beyaz-siyah",
@@ -333,6 +355,7 @@ export default {
           tagColor: "orange",
         },
         {
+          isAdded: false,
           id:8,
           title: "KLYNNETÅG",
           description: "örtü, siyah-beyaz",
@@ -344,6 +367,7 @@ export default {
           tagColor: "white",
         },
         {
+          isAdded: false,
           id:9,
           title: "KUSTFLY",
           description: "kırlent kılıfı, bej-siyah",
@@ -355,6 +379,7 @@ export default {
           tagColor: "green",
         },
         {
+          isAdded: false,
           id:10,
           title: "MOSSMOTT",
           description: "örtü, siyah-beyaz",
@@ -369,6 +394,7 @@ export default {
       shoppingCart: [],
       mostselling:[
         {
+          isAdded: false,
           id: 11,
           title: "BARSLÖV",
           description: "bazalı yataklı köşe kanepe, tibbleby bej-gri",
@@ -379,6 +405,7 @@ export default {
           tagColor: "purple"
         },
         {
+          isAdded: false,
           id: 12,
           title: "KIVIK",
           description: "3'lü kanepe, tresund antrasit",
@@ -389,6 +416,7 @@ export default {
           tagColor: "purple",
         },
         {
+          isAdded: false,
           id: 13,
           title: "ESKILSTUNA",
           description: "2'li kanepe, hillared anthracite",
@@ -399,6 +427,7 @@ export default {
           tagColor: "purple",
         },
         {
+          isAdded: false,
           id: 14,
           title: "SÖDERHAMN",
           description: "6'lı köşe kanepe, viarp Bej-kahverengi",
@@ -409,6 +438,7 @@ export default {
           tagColor: "purple",
         },
         {
+          isAdded: false,
           id: 15,
           title: "VIMLE",
           description: "2'li yataklı kanepe, gunnared orta gri",
@@ -444,6 +474,20 @@ export default {
   },
   props: ['product'],
   methods: {
+    toggleCartIcon(product) {
+          this.addToCart(product);
+          product.isAdded = true;
+          this.popup.message = `${product.title} ${product.description} sepetinize eklenmiştir.`;
+          this.popup.visible = true;
+
+          setTimeout(() => {
+            product.isAdded = false;
+          }, 3000);
+
+          setTimeout(() => {
+            this.popup.visible = false;
+          }, 5000);
+  },
     addToCart(product) {
     console.log('Product being added to cart:', product);
     this.$store.dispatch('cart/addItem', product);
@@ -581,6 +625,37 @@ content: "";
   width: 100%;
   margin-top: 30px;
   margin-bottom: 30px;
+}
+
+.popup-notification {
+  position: fixed;
+  background: black;
+  color: white;
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  z-index: 1000;
+  animation: fade-in-out 0.3s;
+  max-width: 500px;
+}
+
+@keyframes fade-in-out {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.goster:hover {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  text-decoration: underline;
 }
 
 </style>
