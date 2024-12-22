@@ -77,19 +77,18 @@
     <v-container style="padding-bottom: 60px;">
       <v-slide-group show-arrows>
         <v-slide-item
-          v-for="(product, index) in products"
-          :key="index"
+          v-for="(product) in products"
+          :key="product.id"
           class="product-card"
         >
           <v-card
             class="mx-2"
-
             elevation="0"
-            @mouseover="hoveredCard = index"
+            @mouseover="hoveredCard = product.id"
             @mouseleave="hoveredCard = null"
           >
             <v-img
-              :src="hoveredCard === index ? product.hoverImage : product.image"
+              :src="hoveredCard === product.id ? product.hoverImage : product.image"
               alt="Product image"
               class="product-image"
             ></v-img>
@@ -111,10 +110,10 @@
               <span class="current-price">{{ product.price }}₺</span>
             </v-card-subtitle>
 
-            <v-btn icon color="blue" class="mt-1">
-              <v-icon>mdi-cart</v-icon>
-            </v-btn>
+            <v-btn style="background-color: #0058a3;" icon @click="addToCart(product)"><v-icon color="white">mdi-basket-plus</v-icon></v-btn>
+
           </v-card>
+
         </v-slide-item>
       </v-slide-group>
     </v-container>
@@ -161,9 +160,8 @@
             <v-card-subtitle class="text-body-2">
               <span class="current-price">{{ product.price }}₺</span>
             </v-card-subtitle>
-            <v-btn icon color="blue" class="mt-1">
-              <v-icon>mdi-cart</v-icon>
-            </v-btn>
+            <v-btn style="background-color: #0058a3;" icon @click="addToCart(product)"><v-icon color="white">mdi-basket-plus</v-icon></v-btn>
+
           </v-card>
         </v-slide-item>
       </v-slide-group>
@@ -258,6 +256,7 @@ export default {
       hoveredCard: null,
       products: [
         {
+          id: 1,
           title: "SVARTPOPPEL",
           description: "kırlent kılıfı, gri-yeşil",
           image: require('@/assets/kanepler-imgs/first-slider/f-img.png'),
@@ -268,6 +267,7 @@ export default {
           tagColor: "white"
         },
         {
+          id: 2,
           title: "KLIPPOXEL",
           description: "örtü, mavi",
           image: require('@/assets/kanepler-imgs/first-slider/s.png'),
@@ -278,6 +278,7 @@ export default {
           tagColor: "orange",
         },
         {
+          id:3,
           title: "ODDNY",
           description: "kırlent kılıfı, kırık beyaz-siyah nokta deseni",
           image: require('@/assets/kanepler-imgs/first-slider/t.png'),
@@ -288,6 +289,7 @@ export default {
           tagColor: "yellow",
         },
         {
+          id:4,
           title: "GINSTSÄCKMAL",
           description: "örtü, siyah-beyaz",
           image: require('@/assets/kanepler-imgs/first-slider/fo.png'),
@@ -298,6 +300,7 @@ export default {
           tagColor: "orange",
         },
         {
+          id:5,
           title: "SVÄRDTÅG",
           description: "kırlent kılıfı, koyu mavi",
           image: require('@/assets/kanepler-imgs/first-slider/fi.png'),
@@ -308,6 +311,7 @@ export default {
           tagColor: "white",
         },
         {
+          id:6,
           title: "SVARTFRYLE",
           description: "örtü, koyu sarı-açık gri",
           image: require('@/assets/kanepler-imgs/first-slider/si.png'),
@@ -318,6 +322,7 @@ export default {
           tagColor: "orange",
         },
         {
+          id:7,
           title: "SPIKKLUBBA",
           description: "kırlent kılıfı, kırık beyaz-siyah",
           image: require('@/assets/kanepler-imgs/first-slider/se.png'),
@@ -328,6 +333,7 @@ export default {
           tagColor: "orange",
         },
         {
+          id:8,
           title: "KLYNNETÅG",
           description: "örtü, siyah-beyaz",
           image: require('@/assets/kanepler-imgs/first-slider/e.png'),
@@ -338,6 +344,7 @@ export default {
           tagColor: "white",
         },
         {
+          id:9,
           title: "KUSTFLY",
           description: "kırlent kılıfı, bej-siyah",
           image: require('@/assets/kanepler-imgs/first-slider/n.png'),
@@ -348,6 +355,7 @@ export default {
           tagColor: "green",
         },
         {
+          id:10,
           title: "MOSSMOTT",
           description: "örtü, siyah-beyaz",
           image: require('@/assets/kanepler-imgs/first-slider/ten.png'),
@@ -358,9 +366,10 @@ export default {
           tagColor: "orange",
         },
       ],
-
+      shoppingCart: [],
       mostselling:[
         {
+          id: 11,
           title: "BARSLÖV",
           description: "bazalı yataklı köşe kanepe, tibbleby bej-gri",
           image: require('@/assets/kanepler-imgs/cok-satan/f.png'),
@@ -370,6 +379,7 @@ export default {
           tagColor: "purple"
         },
         {
+          id: 12,
           title: "KIVIK",
           description: "3'lü kanepe, tresund antrasit",
           image: require('@/assets/kanepler-imgs/cok-satan/s.png'),
@@ -379,6 +389,7 @@ export default {
           tagColor: "purple",
         },
         {
+          id: 13,
           title: "ESKILSTUNA",
           description: "2'li kanepe, hillared anthracite",
           image: require('@/assets/kanepler-imgs/cok-satan/t.png'),
@@ -388,6 +399,7 @@ export default {
           tagColor: "purple",
         },
         {
+          id: 14,
           title: "SÖDERHAMN",
           description: "6'lı köşe kanepe, viarp Bej-kahverengi",
           image: require('@/assets/kanepler-imgs/cok-satan/fo.png'),
@@ -397,6 +409,7 @@ export default {
           tagColor: "purple",
         },
         {
+          id: 15,
           title: "VIMLE",
           description: "2'li yataklı kanepe, gunnared orta gri",
           image: require('@/assets/kanepler-imgs/cok-satan/fi.png'),
@@ -429,7 +442,13 @@ export default {
       ],
     };
   },
+  props: ['product'],
   methods: {
+    addToCart(product) {
+    console.log('Product being added to cart:', product);
+    this.$store.dispatch('cart/addItem', product);
+
+  },
     scrollToSection() {
       const target = document.getElementById('target-section');
       if (target) {
