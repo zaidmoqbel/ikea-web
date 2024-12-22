@@ -32,7 +32,7 @@
           <v-col cols="2">
            <router-link to="/"><img src="@/assets/header-imgs/ikea_logo.png.png" alt="ikea logo" style="padding-left: 40px;" /></router-link>
           </v-col>
-          <v-col cols="6">
+          <v-col cols="5">
             <div class="search-input-container" style="width: 90%; position: relative;">
               <input
                 type="search"
@@ -66,18 +66,28 @@
               </span>
             </div>
           </v-col>
-          <v-col cols="4" class="ps-5">
-            <div class="parent d-flex justify-space-evenly align-center">
+          <v-col cols="5" class="ps-5">
+            <div class="parent d-flex justify-space-between align-center">
+              <div class=" d-flex align-center" style="cursor: pointer;" @click="openCart">
+                <router-link to="/" class="location-text">
+                  <v-icon style="color: black">mdi-store</v-icon>
+                  <span>İstanbul Anadolu</span>
+                </router-link>
+
+              </div>
               <div class="login_signup d-flex login-container">
                 <router-link to="/sign-up"> <img class="login-icon" src="@/assets/header-imgs/person.png" alt="" style="cursor: pointer;"/></router-link>
-                <router-link to="/sign-up" style="color: black; cursor: pointer;text-decoration: none;">Hej! Giriş Yap veya Üye Ol</router-link>
+                <router-link to="/sign-up" style="color: black; cursor: pointer;text-decoration: none;">Hej! Giriş Yap / Üye Ol</router-link>
               </div>
-              <div class="wishlists d-flex flex-column align-center" style="cursor: pointer;" @click="openCart">
-                <img src="@/assets/header-imgs/heart.png" style="height: 20px; width: 20px;" />
-              </div>
-              <div class="cart d-flex flex-column align-center" style ="cursor: pointer;">
-                <img src="@/assets/header-imgs/shopping-basket.png" style="height: 20px; width: 20px;" />
-              </div>
+
+                <div class="cart d-flex flex-column align-center" style ="cursor: pointer;">
+                  <v-btn icon>
+                    <v-badge :content="9" color="#0047AB">
+                      <img src="@/assets/header-imgs/shopping-basket.png" style="height: 20px; width: 20px;" />
+                  </v-badge>
+                 </v-btn>
+                </div>
+
             </div>
           </v-col>
         </v-row>
@@ -213,16 +223,14 @@ export default {
 }
 
 .login-container {
-  display: flex;
   align-items: center;
   transition: background-color ;
-  padding: 15px;
-  border-radius: 5px;
   letter-spacing: 0.5px;
 }
 
-.login-container:hover .login-icon {
+.login-container:hover{
   background-color: #D3D3D3;
+  border-radius: 25px;
 }
 
 .login-icon {
@@ -232,17 +240,23 @@ export default {
   width: 30px;
 }
 
-.wishlists, .cart {
+.cart {
   transition: background-color ;
   border-radius: 50%;
-  padding: 5px;
-  height: 30px;
   width: 30px;
 }
 
-.wishlists:hover, .cart:hover {
+.location-text {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+.location-text:hover {
   background-color: #D3D3D3;
-  border-radius: 50%;
+  border-radius: 25px;
   padding: 5px;
   display: flex;
   align-items: center;
