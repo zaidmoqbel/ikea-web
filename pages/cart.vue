@@ -161,15 +161,15 @@ export default {
   },
   methods: {
     formatPrice(value) {
-    if (typeof value !== 'number' || isNaN(value)) {
-      return value;
-    }
-    if (Number.isInteger(value)) {
-      return value.toString();
-    } else {
-      return value.toFixed(3).replace(/\.?0+$/, '');
-    }
-  },
+      if (typeof value !== 'number' || isNaN(value)) {
+        return value;
+      }
+      if (Number.isInteger(value)) {
+        return value.toString();
+      } else {
+        return value.toFixed(3).replace(/\.?0+$/, '');
+      }
+    },
     removeItem(productId) {
       this.$store.dispatch('cart/removeItem', productId);
     },
@@ -177,11 +177,17 @@ export default {
       this.$store.dispatch('cart/updateQuantity', { productId, quantity });
     },
     increaseQuantity(productId) {
-      this.$store.dispatch('cart/increaseQuantity', productId);
+      this.$store.dispatch('cart/updateQuantity', { productId, quantity: this.cartItems.find(item => item.id === productId).quantity + 1 });
     },
     decreaseQuantity(productId) {
-      this.$store.dispatch('cart/decreaseQuantity', productId);
+      const currentQuantity = this.cartItems.find(item => item.id === productId).quantity;
+      if (currentQuantity > 1) {
+        this.$store.dispatch('cart/updateQuantity', { productId, quantity: currentQuantity - 1 });
+      }
     },
+  },
+  mounted() {
+    this.$store.dispatch('cart/loadCart');
   },
 };
 </script>
