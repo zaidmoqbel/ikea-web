@@ -24,7 +24,7 @@
             <h3 class="card-title">{{ product.title }}</h3>
             <p class="card-description">{{ product.description }}</p>
             <p class="price">{{ product.price }}₺</p>
-            <v-btn style="background-color: #0058a3;" icon @click="addToCart(product)"><v-icon color="white">mdi-basket-plus</v-icon></v-btn>
+            <v-btn style="background-color: #0058a3;" icon @click="toggleCartIcon(product)"><v-icon color="white">{{ product.isAdded ? "mdi-check" : "mdi-basket-plus" }}</v-icon></v-btn>
 
             <div v-if="product.options && product.options.length" class="more-options">
               <p>Daha fazla seçenek</p>
@@ -46,6 +46,16 @@
         </v-card>
       </v-col>
     </v-row>
+
+    <div
+    v-if="popup.visible"
+    class="popup-notification"
+    :style="{ right: '100px', bottom: '450px', top: '100px',left: '900px' }"
+  >
+    {{ popup.message }}
+    <v-btn text @click="popup.visible = false" style="color: white;  font-size: 0.6rem;" class="text-none goster" >Göster</v-btn>
+    <v-btn text @click="popup.visible = false" style="color: white;  font-size: 0.6rem;">X</v-btn>
+  </div>
   </v-container>
 
 </template>
@@ -55,8 +65,14 @@
 export default {
   data() {
     return {
+      popup: {
+      visible: false,
+      message: '',
+    },
+      currentIcon: "mdi-basket-plus",
       products: [
         {
+          isAdded: false,
           id: 16,
           title: "HYLTARP",
           description: "2'li kanepe ve uzanma koltuğu",
@@ -75,6 +91,7 @@ export default {
           ],
         },
         {
+          isAdded: false,
           id: 17,
           title: "KIVIK",
           description: "2'li kanepe kılıfı",
@@ -92,6 +109,7 @@ export default {
           ],
         },
         {
+          isAdded: false,
           id: 18,
           title: "AFJALL",
           description: "Çift kişilik yatak, 140x200 cm",
@@ -104,6 +122,7 @@ export default {
           options: []
         },
         {
+          isAdded: false,
           id: 19,
           title: "VISKAFORS",
           description: "2'li Kanepe",
@@ -120,6 +139,7 @@ export default {
           ],
         },
         {
+          isAdded: false,
           id: 20,
           title: "RÖDEBY ",
           description: "kolçak tepsisi",
@@ -135,6 +155,7 @@ export default {
           ],
         },
         {
+          isAdded: false,
           id: 21,
           title: "EKENÄSET ",
           description: "3'lü kanepe",
@@ -150,6 +171,7 @@ export default {
           ],
         },
         {
+          isAdded: false,
           id: 22,
           title: "AFJALL ",
           description: "çift kişilik yatak, 140x200 cm",
@@ -162,6 +184,7 @@ export default {
           options: [],
         },
         {
+          isAdded: false,
           id: 23,
           title: "KIVIK ",
           description: "2'li kanepe kılıfı",
@@ -183,10 +206,23 @@ export default {
   },
   props: ['product'],
       methods: {
+        toggleCartIcon(product) {
+          this.addToCart(product);
+          product.isAdded = true;
+          this.popup.message = `${product.title} ${product.description} sepetinize eklenmiştir.`;
+          this.popup.visible = true;
+
+          setTimeout(() => {
+            product.isAdded = false;
+          }, 3000);
+
+          setTimeout(() => {
+            this.popup.visible = false;
+          }, 5000);
+      },
         addToCart(product) {
         console.log('Product being added to cart:', product);
         this.$store.dispatch('cart/addItem', product);
-
       },
         scrollToSection() {
           const target = document.getElementById('target-section');
@@ -284,5 +320,37 @@ export default {
   color: #555;
   border: 1px solid #ddd;
 }
+
+.popup-notification {
+  position: fixed;
+  background: black;
+  color: white;
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  z-index: 1000;
+  animation: fade-in-out 0.3s;
+  max-width: 500px;
+}
+
+@keyframes fade-in-out {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.goster:hover {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  text-decoration: underline;
+}
+
 
 </style>
