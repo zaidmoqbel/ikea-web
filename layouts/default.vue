@@ -92,9 +92,9 @@ export default {
           to: '/Kanepler'
         },
         {
-          icon: 'mdi-food-fork-drink',
-          title: 'İsveç Restoran ',
-          to: '/restoran'
+          icon: 'mdi-cart',
+          title: 'Cart ',
+          to: '/cart'
         },
       ],
     }
