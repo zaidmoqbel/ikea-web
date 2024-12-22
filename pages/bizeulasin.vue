@@ -59,9 +59,9 @@
                      color="#e9edf5"
                    >
                    <template v-slot:default >
-                     <div v-html="card.title" style="padding-top: 30px;"></div> <!-- Use v-html to render HTML content -->
-                     <div v-html="card.subtitle" style="padding-top: 10px; font-weight: bolder; padding-bottom: 10px;color: black;"></div> <!-- Use v-html to render HTML content -->
-                     <div v-html="card.text" style="text-align: left;padding-left: 30px;color: black; font-size: 14px;"  class="itm"></div> <!-- Use v-html to render HTML content -->
+                     <div v-html="card.title" style="padding-top: 30px;"></div>
+                     <div v-html="card.subtitle" style="padding-top: 10px; font-weight: bolder; padding-bottom: 10px;color: black;"></div>
+                     <div v-html="card.text" style="text-align: left;padding-left: 30px;color: black; font-size: 14px;"  class="itm"></div>
                    </template>
                  </v-card>
                  </v-col>
