@@ -62,12 +62,12 @@
               </v-row>
 
               <v-row class="footer-icons py-4">
-                  <v-btn outlined class="change-icon" icon size="small"><v-icon>mdi-facebook</v-icon></v-btn>
-                  <v-btn outlined class="change-icon" icon size="small"><v-icon>mdi-twitter</v-icon></v-btn>
-                  <v-btn outlined class="change-icon" icon size="small"><v-icon>mdi-instagram</v-icon></v-btn>
-                  <v-btn outlined class="change-icon" icon size="small"><v-icon>mdi-pinterest</v-icon></v-btn>
-                  <v-btn outlined class="change-icon" icon size="small"><v-icon>mdi-youtube</v-icon></v-btn>
-                  <v-btn outlined class="change-icon" icon size="small"><v-icon>mdi-linkedin</v-icon></v-btn>
+                  <v-btn outlined class="change-icon" icon size="small" @click="goto('https://www.facebook.com/IKEATurkiye')"><v-icon>mdi-facebook</v-icon></v-btn>
+                  <v-btn outlined class="change-icon" icon size="small" @click="goto('https://x.com/IKEATurkiye')"><v-icon>mdi-twitter</v-icon></v-btn>
+                  <v-btn outlined class="change-icon" icon size="small" @click="goto('https://www.instagram.com/ikeaturkiye/')"><v-icon>mdi-instagram</v-icon></v-btn>
+                  <v-btn outlined class="change-icon" icon size="small" @click="goto('https://www.pinterest.com/ikeaturkiye/')"><v-icon>mdi-pinterest</v-icon></v-btn>
+                  <v-btn outlined class="change-icon" icon size="small" @click="goto('https://www.youtube.com/IKEATurkiye')"><v-icon>mdi-youtube</v-icon></v-btn>
+                  <v-btn outlined class="change-icon" icon size="small" @click="goto('https://www.linkedin.com/company/ikea/')"><v-icon>mdi-linkedin</v-icon></v-btn>
                   <img src="../assets/footer-imgs/secure.png" style="height:34px;width:124px;">
                   <img src="@/assets/footer-imgs/pci.png" style="height:34px;width:70px;">
                   <img class="qr-pic" src="@/assets/footer-imgs/qr.png" style="height:35px;width:35px;">
@@ -96,7 +96,15 @@
   </div>
 </template>
 
-
+<script>
+export default {
+  methods: {
+    goto(url) {
+      window.open(url, '_blank'); // Opens the URL in a new tab
+    }
+  }
+};
+</script>
 
 <style scoped>
 
