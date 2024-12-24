@@ -24,7 +24,7 @@
                     <div>
                       <h3 class="details">{{ item.title }}</h3>
                       <p class="details">{{ item.description }}</p>
-                      <h3 class="details">{{ formatPrice(item.price) }}</h3>
+                      <h3 class="details">{{ new Intl.NumberFormat('tr-TR').format(item.price).replace(',', '.') }}</h3>
                     </div>
                   </v-col>
 
@@ -37,7 +37,7 @@
                   </v-col>
 
                   <v-col cols="3" class="text-right">
-                    <span style="font-size: 20px; font-weight: bold; color: black;">{{ formatPrice(item.price * item.quantity) }}₺</span>
+                    <span style="font-size: 20px; font-weight: bold; color: black;">{{ new Intl.NumberFormat('tr-TR').format(item.price * item.quantity) }}₺</span>
                     <div>
                       <v-btn @click="removeItem(item.id)" color="#0058a3" text icon class="text-none trash-button"><v-icon>mdi-trash-can-outline</v-icon><span class="trash-button-text">Ürünü Sil</span></v-btn>
                     </div>
@@ -99,14 +99,14 @@
                     <h4 style="color: black;font-size: 17px;">Ürünler Bedeli</h4>
                     <p style="padding-top: 5px;color: #6e6e6e;">KDV Dahil</p>
                   </v-col>
-                  <v-col cols="6" class="text-right" style="color: black;font-weight: bold;font-size: 17px;">{{ formatPrice(totalAmount) }}₺</v-col>
+                  <v-col cols="6" class="text-right" style="color: black;font-weight: bold;font-size: 17px;">{{ new Intl.NumberFormat('tr-TR').format(totalAmount) }}₺</v-col>
                 </v-row>
                 <v-row>
                   <v-col cols="6" class="text-left" style="padding-top:0px;padding-bottom: 10px;">
                     <h4 style="color: black;font-size: 17px;">Nakliye Bedeli</h4>
                     <p style="padding-top: 5px;padding-bottom: 10px;color: #6e6e6e;">KDV Dahil</p>
                   </v-col>
-                  <v-col cols="6" class="text-right" style="color: black;font-weight: bold;padding-top:0px;font-size: 17px;">{{ formatPrice(totalAmount * 0.11) }}₺</v-col>
+                  <v-col cols="6" class="text-right" style="color: black;font-weight: bold;padding-top:0px;font-size: 17px;">{{ new Intl.NumberFormat('tr-TR').format(Math.max(Math.floor(totalAmount * 0.111), 199)) }}₺</v-col>
                 </v-row>
                 <v-divider></v-divider>
                 <v-row  style="padding-top:20px;">
@@ -114,7 +114,7 @@
                     <strong style="color: black;font-size: 17px;">Genel Toplam</strong>
                     <p style="padding-top: 5px;color: #6e6e6e;">KDV Dahil</p>
                   </v-col>
-                  <v-col cols="6" class="text-right" style="color: black;font-size: 17px;"><strong>{{ formatPrice(totalAmount + 199 ) }}₺</strong></v-col>
+                  <v-col cols="6" class="text-right" style="color: black;font-size: 17px;"><strong>{{ new Intl.NumberFormat('tr-TR').format(Math.floor(totalAmount + Math.max((totalAmount * 0.11111), 199))) }}₺</strong></v-col>
                 </v-row>
                 <div class="text-left" style="padding: 17px 20px 35px 0px;color: #6e6e6e;">
                   Stoktaki Ürünler Toplamıdır
@@ -160,15 +160,8 @@ export default {
     },
   },
   methods: {
-    formatPrice(value) {
-      if (typeof value !== 'number' || isNaN(value)) {
-        return value;
-      }
-      if (Number.isInteger(value)) {
-        return value.toString();
-      } else {
-        return value.toFixed(3).replace(/\.?0+$/, '');
-      }
+    nakliyePrice(value) {
+      return value * 0.11;
     },
     removeItem(productId) {
       this.$store.dispatch('cart/removeItem', productId);
@@ -181,7 +174,7 @@ export default {
     },
     decreaseQuantity(productId) {
       const currentQuantity = this.cartItems.find(item => item.id === productId).quantity;
-      if (currentQuantity > 1) {
+      if (currentQuantity > 0) {
         this.$store.dispatch('cart/updateQuantity', { productId, quantity: currentQuantity - 1 });
       }
     },
