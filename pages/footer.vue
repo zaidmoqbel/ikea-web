@@ -100,7 +100,7 @@
 export default {
   methods: {
     goto(url) {
-      window.open(url, '_blank'); // Opens the URL in a new tab
+      window.open(url, '_blank');
     }
   }
 };
