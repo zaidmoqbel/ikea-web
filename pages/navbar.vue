@@ -79,53 +79,56 @@
                 <router-link to="/sign-up"> <img class="login-icon" src="@/assets/header-imgs/person.png" alt="" style="cursor: pointer;"/></router-link>
                 <router-link to="/sign-up" style="color: black; cursor: pointer;text-decoration: none;">Hej! Giriş Yap / Üye Ol</router-link>
               </div>
-
+              <template v-if="totalItems > 0">
               <div>
-    <!-- Cart Dropdown -->
-    <v-menu
-      v-model="cartMenu"
-      offset-y
-      close-on-content-click
-      style="z-index: 10;"
-    >
-      <template v-slot:activator="{ on, attrs }">
-        <v-btn icon v-bind="attrs" v-on="on">
-          <v-badge :content="totalItems" color="#0047AB">
-            <img src="@/assets/header-imgs/shopping-basket.png" style="height: 20px; width: 20px;" />
-          </v-badge>
-        </v-btn>
-      </template>
+                <v-menu
+                  v-model="cartMenu"
+                  offset-y
+                  :close-on-content-click="false"
+                  style="z-index: 10;box-shadow: none !important;"
+                >
+                  <template v-slot:activator="{ on, attrs }" >
+                    <v-btn icon v-bind="attrs" v-on="on">
+                      <v-badge :content="cartItems.length" color="#0047AB">
+                        <img src="@/assets/header-imgs/shopping-basket.png" style="height: 20px; width: 20px;" />
+                      </v-badge>
+                    </v-btn>
+                  </template>
 
-      <v-card style="min-width: 300px;">
-        <v-card-title style="color: #004cbc; font-size: 16px;">Alışveriş Sepeti</v-card-title>
-        <v-card-text style="font-size: 12px; color: #242424;">Sepetinizde toplam<span style="font-weight: bold;background-color: #fcd500;border-radius: 12px;padding-left: 5px;padding-right: 5px;">  {{  totalItems }} ürün  </span>vardır.<br>Son eklenen ürün:</v-card-text>
-        <v-divider />
-        <v-list>
-          <!-- Render each cart item -->
-          <v-list-item v-for="item in cartItems" :key="item.id">
-            <v-list-item-avatar>
-              <img :src="item.image" alt="product" />
-            </v-list-item-avatar>
-            <v-list-item-content>
-              <v-list-item-title style="font-weight: bold;">{{ item.title }}</v-list-item-title>
-              <v-list-item-subtitle>{{ item.description }} </v-list-item-subtitle>
-            </v-list-item-content>
-            <v-list-item-action>
-              <v-list-item-title style="font-weight: bold;">{{item.price}}₺</v-list-item-title>
-              <v-btn icon @click="removeItem(item.id)"  style="color: #0058a3;">
-                <v-icon>mdi-trash-can-outline</v-icon>
-              </v-btn>
-            </v-list-item-action>
-          </v-list-item>
-        </v-list>
-        <v-divider />
-        <v-card-actions>
-          <v-btn block color="#0058a3" @click="goToCart" rounded style="color: white;" class="text-none">Sepete Git</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-menu>
-  </div>
-
+                  <v-card style="width: 426px;border: 1px solid #ccc; box-shadow: none; border-radius: 0;" class="custom-cart-card">
+                    <v-card-title style="color: #004cbc; font-size: 16px;">Alışveriş Sepeti</v-card-title>
+                    <v-card-text style="font-size: 12px; color: #242424;">Sepetinizde toplam<span style="font-weight: bold;background-color: #fcd500;border-radius: 12px;padding-left: 5px;padding-right: 5px;">  {{  cartItems.length }} ürün  </span>vardır.<br>Son eklenen ürün:</v-card-text>
+                    <v-divider />
+                    <v-list>
+                      <v-list-item v-if="cartItems.length > 0" :key="cartItems[0].id">
+                        <v-list-item-avatar style="width: 70px;height: 70px;border-radius: 0;">
+                          <img :src="cartItems[0].image" alt="product" />
+                        </v-list-item-avatar>
+                        <v-list-item-content class="content">
+                          <v-list-item-title style="font-weight: bold;">{{ cartItems[0].quantity }} adet {{ cartItems[0].title }}</v-list-item-title>
+                          <v-list-item-subtitle>{{ cartItems[0].description }}</v-list-item-subtitle>
+                        </v-list-item-content>
+                        <v-list-item-action>
+                          <v-list-item-title style="font-weight: bold;" class="price">{{ cartItems[0].price * cartItems[0].quantity}}₺</v-list-item-title>
+                          <v-btn icon @click="removeFirstItem" style="color: #0058a3 !important;" class="trash-btn" elevation="0" plain>
+                            <v-icon>mdi-trash-can-outline</v-icon>
+                          </v-btn>
+                        </v-list-item-action>
+                      </v-list-item>
+                    </v-list>
+                    <v-divider />
+                    <v-card-actions>
+                      <v-btn block color="#0058a3" @click="goToCart" rounded style="color: white;height: 54px" class="text-none">Sepete Git</v-btn>
+                    </v-card-actions>
+                  </v-card>
+                </v-menu>
+              </div>
+            </template>
+            <template v-else>
+              <v-btn icon @click="goToCart">
+                  <img src="@/assets/header-imgs/shopping-basket.png" style="height: 20px; width: 20px;" />
+                </v-btn>
+            </template>
             </div>
           </v-col>
         </v-row>
@@ -160,6 +163,12 @@ export default {
   methods: {
     goToCart() {
       this.$router.push('/cart')
+    },
+    removeFirstItem() {
+      if (this.cartItems.length > 0) {
+        const firstItemId = this.cartItems[0].id;
+        this.$store.dispatch('cart/removeItem', firstItemId);
+      }
     },
     removeItem(productId) {
       this.$store.dispatch('cart/removeItem', productId);
@@ -201,7 +210,6 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400&display=swap');
 
 .menu-drawer {
   margin-left: 30px;
@@ -320,10 +328,9 @@ export default {
 }
 
 .v-list-item-avatar img {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   object-fit: cover;
-  border-radius: 4px;
 }
 
 .v-list-item {
@@ -336,6 +343,29 @@ export default {
 
 .v-card-actions .v-btn {
   font-weight: bold;
+}
+
+.custom-cart-card {
+  border: 1px solid #ccc !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+.trash-btn:hover {
+  text-decoration: underline;
+  background-color: transparent !important;
+  color: #0058a3 !important;
+  box-shadow: none !important;
+}
+
+.content:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.price:hover {
+  text-decoration: underline;
+  cursor: text;
 }
 
 </style>

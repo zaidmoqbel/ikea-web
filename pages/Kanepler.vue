@@ -252,8 +252,8 @@
     :style="{ right: '100px', bottom: '450px', top: '100px',left: '900px' }"
   >
     {{ popup.message }}
-    <v-btn text @click="popup.visible = false" style="color: white;  font-size: 0.6rem;" class="text-none goster" >Göster</v-btn>
-    <v-btn text @click="popup.visible = false" style="color: white;  font-size: 0.6rem;">X</v-btn>
+    <v-btn text @click="goToCart" style="color: white;  font-size: 0.6rem;" class="text-none goster" elevation="0" plain >Göster</v-btn>
+    <v-btn text @click="popup.visible = false" style="color: white;  font-size: 0.6rem;" elevation="0" plain>X</v-btn>
   </div>
 
   </div>
@@ -474,6 +474,9 @@ export default {
   },
   props: ['product'],
   methods: {
+    goToCart() {
+      this.$router.push('/cart')
+    },
     toggleCartIcon(product) {
           this.addToCart(product);
           product.isAdded = true;

@@ -106,7 +106,7 @@
                     <h4 style="color: black;font-size: 17px;">Nakliye Bedeli</h4>
                     <p style="padding-top: 5px;padding-bottom: 10px;color: #6e6e6e;">KDV Dahil</p>
                   </v-col>
-                  <v-col cols="6" class="text-right" style="color: black;font-weight: bold;padding-top:0px;font-size: 17px;">199₺</v-col>
+                  <v-col cols="6" class="text-right" style="color: black;font-weight: bold;padding-top:0px;font-size: 17px;">{{ formatPrice(totalAmount * 0.11) }}₺</v-col>
                 </v-row>
                 <v-divider></v-divider>
                 <v-row  style="padding-top:20px;">
