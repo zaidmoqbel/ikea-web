@@ -21,6 +21,7 @@
         outlined
         rounded
         class="text-none"
+        @click="goto('https://www.ikea.com.tr/musteri-memnuniyeti-anketi')"
         ><span class="text-btn">Geri Bildirim vermek için tıklayın</span></v-btn>
       </v-col>
       <v-col cols="6">
@@ -30,6 +31,7 @@
         outlined
         rounded
         class="text-none"
+        @click="goToContact"
         ><span class="text-btn">Bize ulaşmak için tıklayın</span></v-btn>
       </v-col>
     </v-row>
@@ -37,6 +39,19 @@
   </div>
 
 </template>
+
+<script>
+export default {
+  methods: {
+    goToContact() {
+      this.$router.push('/bizeulasin')
+    },
+    goto(url) {
+      window.open(url, '_blank');
+    },
+  }
+};
+</script>
 
 <style scoped>
 
