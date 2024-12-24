@@ -107,7 +107,7 @@
             <v-card-subtitle class="text-body-2">
               <span v-if="product.oldPrice" class="old-price">{{ product.oldPrice }}₺</span>
               <br>
-              <span class="current-price">{{ product.price }}₺</span>
+              <span class="current-price">{{ new Intl.NumberFormat('tr-TR').format(product.price) }}₺</span>
             </v-card-subtitle>
 
             <v-btn style="background-color: #0058a3;" icon @click="toggleCartIcon(product)"><v-icon color="white">{{ product.isAdded ? "mdi-check" : "mdi-basket-plus" }}</v-icon></v-btn>
@@ -158,7 +158,7 @@
             <v-card-title class="text-h6 mt-2">{{ product.title }}</v-card-title>
             <v-card-subtitle class="text-body-2">{{ product.description }}</v-card-subtitle>
             <v-card-subtitle class="text-body-2">
-              <span class="current-price">{{ product.price }}₺</span>
+              <span class="current-price">{{ new Intl.NumberFormat('tr-TR').format(product.price) }}₺</span>
             </v-card-subtitle>
             <v-btn style="background-color: #0058a3;" icon @click="toggleCartIcon(product)"><v-icon color="white">{{ product.isAdded ? "mdi-check" : "mdi-basket-plus" }}</v-icon></v-btn>
 
@@ -277,7 +277,7 @@ export default {
           description: "kırlent kılıfı, gri-yeşil",
           image: require('@/assets/kanepler-imgs/first-slider/f-img.png'),
           hoverImage: require('@/assets/kanepler-imgs/first-slider/f-h-img.png'),
-          price: "219 ",
+          price: 219,
           oldPrice: null,
           tag: " ",
           tagColor: "white"
@@ -289,7 +289,7 @@ export default {
           description: "örtü, mavi",
           image: require('@/assets/kanepler-imgs/first-slider/s.png'),
           hoverImage: require('@/assets/kanepler-imgs/first-slider/s-h.png'),
-          price: "899 ",
+          price: 899,
           oldPrice: null,
           tag: "Yeni",
           tagColor: "orange",
@@ -301,7 +301,7 @@ export default {
           description: "kırlent kılıfı, kırık beyaz-siyah nokta deseni",
           image: require('@/assets/kanepler-imgs/first-slider/t.png'),
           hoverImage: require('@/assets/kanepler-imgs/first-slider/t-h.png'),
-          price: "129 ",
+          price: 129,
           oldPrice: "159 ",
           tag: "FIRSAT GÜNLERİ",
           tagColor: "yellow",
@@ -313,7 +313,7 @@ export default {
           description: "örtü, siyah-beyaz",
           image: require('@/assets/kanepler-imgs/first-slider/fo.png'),
           hoverImage: require('@/assets/kanepler-imgs/first-slider/fo-h.png'),
-          price: "1.199",
+          price: 1199,
           oldPrice: null,
           tag: "Yeni",
           tagColor: "orange",
@@ -325,7 +325,7 @@ export default {
           description: "kırlent kılıfı, koyu mavi",
           image: require('@/assets/kanepler-imgs/first-slider/fi.png'),
           hoverImage: require('@/assets/kanepler-imgs/first-slider/fi-h.png'),
-          price: "219",
+          price: 219,
           oldPrice: null,
           tag: " ",
           tagColor: "white",
@@ -337,7 +337,7 @@ export default {
           description: "örtü, koyu sarı-açık gri",
           image: require('@/assets/kanepler-imgs/first-slider/si.png'),
           hoverImage: require('@/assets/kanepler-imgs/first-slider/si-h.png'),
-          price: "799 ",
+          price: 799,
           oldPrice: null,
           tag: "Yeni",
           tagColor: "orange",
@@ -349,7 +349,7 @@ export default {
           description: "kırlent kılıfı, kırık beyaz-siyah",
           image: require('@/assets/kanepler-imgs/first-slider/se.png'),
           hoverImage: require('@/assets/kanepler-imgs/first-slider/se-h.png'),
-          price: "179 ",
+          price: 179,
           oldPrice: null,
           tag: "Pamuk",
           tagColor: "orange",
@@ -361,7 +361,7 @@ export default {
           description: "örtü, siyah-beyaz",
           image: require('@/assets/kanepler-imgs/first-slider/e.png'),
           hoverImage: require('@/assets/kanepler-imgs/first-slider/e-h.png'),
-          price: "799 ",
+          price: 799,
           oldPrice: null,
           tag: " ",
           tagColor: "white",
@@ -373,7 +373,7 @@ export default {
           description: "kırlent kılıfı, bej-siyah",
           image: require('@/assets/kanepler-imgs/first-slider/n.png'),
           hoverImage: require('@/assets/kanepler-imgs/first-slider/n-h.png'),
-          price: "349",
+          price: 349,
           oldPrice: null,
           tag: "Sürdürülebilir",
           tagColor: "green",
@@ -385,7 +385,7 @@ export default {
           description: "örtü, siyah-beyaz",
           image: require('@/assets/kanepler-imgs/first-slider/ten.png'),
           hoverImage: require('@/assets/kanepler-imgs/first-slider/ten-h.png'),
-          price: "699 ",
+          price: 699,
           oldPrice: null,
           tag: "Yeni",
           tagColor: "orange",
@@ -400,7 +400,7 @@ export default {
           description: "bazalı yataklı köşe kanepe, tibbleby bej-gri",
           image: require('@/assets/kanepler-imgs/cok-satan/f.png'),
           hoverImage: require('@/assets/kanepler-imgs/cok-satan/f-h.png'),
-          price: "28.999",
+          price: 28999,
           tag: "Çok Satan",
           tagColor: "purple"
         },
@@ -411,7 +411,7 @@ export default {
           description: "3'lü kanepe, tresund antrasit",
           image: require('@/assets/kanepler-imgs/cok-satan/s.png'),
           hoverImage: require('@/assets/kanepler-imgs/cok-satan/s-h.png'),
-          price: "24.999",
+          price: 24999,
           tag: "Çok Satan",
           tagColor: "purple",
         },
@@ -422,7 +422,7 @@ export default {
           description: "2'li kanepe, hillared anthracite",
           image: require('@/assets/kanepler-imgs/cok-satan/t.png'),
           hoverImage: require('@/assets/kanepler-imgs/cok-satan/t-h.png'),
-          price: "39.999",
+          price: 39999,
           tag: "Çok Satan",
           tagColor: "purple",
         },
@@ -433,7 +433,7 @@ export default {
           description: "6'lı köşe kanepe, viarp Bej-kahverengi",
           image: require('@/assets/kanepler-imgs/cok-satan/fo.png'),
           hoverImage: require('@/assets/kanepler-imgs/cok-satan/fo-h.png'),
-          price: "65.999",
+          price: 65999,
           tag: "Çok Satan",
           tagColor: "purple",
         },
@@ -444,7 +444,7 @@ export default {
           description: "2'li yataklı kanepe, gunnared orta gri",
           image: require('@/assets/kanepler-imgs/cok-satan/fi.png'),
           hoverImage: require('@/assets/kanepler-imgs/cok-satan/fi-h.png'),
-          price: "47.499",
+          price: 47499,
           tag: "Çok Satan",
           tagColor: "purple",
         },
