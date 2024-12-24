@@ -226,21 +226,37 @@
           :key="index"
           class="filter-btn"
           rounded
+          elevation="0"
+          @click="toggleDropdown(index)"
         >
           {{ filter.name }}
           <v-icon right small v-if="filter.hasDropdown">mdi-chevron-down</v-icon>
+          <v-menu v-if="filter.isOpen" v-model="filter.isOpen" :close-on-content-click="false" transition="slide-y-reverse" elevation="0">
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn v-bind="attrs" v-on="on" class="filter-btn" rounded elevation="0">
+                <v-icon right small>mdi-chevron-down</v-icon>
+              </v-btn>
+            </template>
+            <v-list>
+              <v-list-item-group v-if="filter.hasDropdown" elevation="0" :close-on-content-click="false" style="max-height: fit-content;height:auto;background-color: white">
+                <v-list-item v-for="(option, optionIndex) in filter.options" :key="optionIndex" elevation="0">
+                  <v-list-item-content>
+                    <v-list-item-title>{{ option }}</v-list-item-title>
+                  </v-list-item-content>
+                </v-list-item>
+              </v-list-item-group>
+            </v-list>
+          </v-menu>
         </v-btn>
 
-        <v-btn class="filter-btn" rounded>
+        <v-btn class="filter-btn" rounded elevation="0">
           Tüm Filtreler
-          <v-icon right>mdi-filter</v-icon>
+          <v-icon right>mdi-tune</v-icon>
         </v-btn>
       </v-row>
     </v-container>
 
     <div class="border-line"></div>
-
-    <v-btn outlined rounded width="100%" class="text-none"><span style="font-weight: bolder; font-size: 12px;">Önceki Ürünleri Göster</span></v-btn>
 
     <div id="target-section">
       <products />
@@ -461,19 +477,21 @@ export default {
       { src: require('@/assets/kanepler-imgs/last-slider/n.png'), label: 'VIMLE Serisi' },
     ],
     filters: [
-        { name: "İnternetten Satılanlar", hasDropdown: false },
-        { name: "Sıralama", hasDropdown: true },
-        { name: "Renk", hasDropdown: true },
-        { name: "Fonksiyon", hasDropdown: true },
-        { name: "Kategori", hasDropdown: true },
-        { name: "Fiyat", hasDropdown: true },
-        { name: "Ölçü", hasDropdown: true },
-        { name: "Ayak Rengi", hasDropdown: true },
+        { name: "Sıralama", hasDropdown: true, isOpen: false, options: ['En Çok Satanlar', 'Artan Fiyata Göre', 'Azalan Fiyata Göre', 'Yeni Ürünlere Göre', 'İsme Göre (A-Z)', 'İsme Göre (Z-A)'] },
+        { name: "Renk", hasDropdown: true, isOpen: false, options: ['Red', 'Blue', 'Green'] },
+        { name: "Fonksiyon", hasDropdown: true, isOpen: false, options: ["3'lü Kanepe", "2'li Kanepe", "2'li Kanepe ve uzanma koltuğu", "3'lü Kanepe ve uzanma koltuğu", "tekli koltuk","3'lü yataklı Kanepe", "tekli koltuk kılıfı", "uzanma koltuğu", "2'li Kanepe kılıfı", "2'li yataklı Kanepe" ,"+58 Daha fazla"] },
+        { name: "Kategori", hasDropdown: true, isOpen: false, options: ['Koltuk Takımları', 'Kumaş Kanepler' , 'Modüler Kanepler', 'Kanepe Aksesuaları', 'Kanepe Kılıfları','L koltuklar','İkili Kanepler','Üçlü Kanepler', 'Yataklı Kanepler', 'Dörtlü Koltuklar', 'U Koltuklar', 'Uzanma Koltukları','Deri Kanepler'] },
+        { name: "Fiyat", hasDropdown: true, isOpen: false, options: ['Koltuk Takımları', 'Kumaş Kanepler' , 'Modüler Kanepler', 'Kanepe Aksesuaları', 'Kanepe Kılıfları','L koltuklar','İkili Kanepler','Üçlü Kanepler', 'Yataklı Kanepler', 'Dörtlü Koltuklar', 'U Koltuklar', 'Uzanma Koltukları','Deri Kanepler'] },
+        { name: "Ölçü", hasDropdown: true, isOpen: false, options: ['140x200 cm', '15 cm', '140x188 cm', '12 cm','20 cm', '67x47 cm'] },
+        { name: "Ayak Rengi", hasDropdown: true, isOpen: false, options: ['ahşap', 'metal', 'huş', 'kahverengi'] },
       ],
     };
   },
   props: ['product'],
   methods: {
+    toggleDropdown(index) {
+      this.filters[index].isOpen = !this.filters[index].isOpen;
+    },
     goToCart() {
       this.$router.push('/cart')
     },
