@@ -14,7 +14,3 @@
     <footerr />
   </div>
 </template>
-
-
-
-
