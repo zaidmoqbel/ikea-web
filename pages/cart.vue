@@ -78,13 +78,13 @@
                   <h1><v-icon style="color: black;font-size: 60px;">mdi-truck-outline</v-icon></h1>
                   <h2 style="padding-top: 20px;padding-bottom: 20px;">Teslimat Tarihi</h2>
                   <p>Tahmini 2 iş günü içinde kargoya verilir.</p>
-                  <p>Siparişiniz sizi bekletmemek adına birden fazla teslimat olarak gerçekleştirilebilir. Kargo firmalarının adrese teslim yapamadığı köy ve beldelerde sipariş, alıcının adresine en yakın kargo şubesinden veya ortak noktadan teslim edilmektedir. Güncel dağıtım bölgelerimizi görmek için <span style="color: #0058a3;">tıklayın.</span></p>
+                  <p>Siparişiniz sizi bekletmemek adına birden fazla teslimat olarak gerçekleştirilebilir. Kargo firmalarının adrese teslim yapamadığı köy ve beldelerde sipariş, alıcının adresine en yakın kargo şubesinden veya ortak noktadan teslim edilmektedir. Güncel dağıtım bölgelerimizi görmek için <span style="color: #0058a3;" class="tikla">tıklayın.</span></p>
                 </div>
               </v-col>
               <v-col cols="6">
                 <img src="../assets/heart-arrow.png" alt="heart arrow" style="width: 60px;">
                 <h2 style="padding-top: 10px;padding-bottom: 20px;">Kolay İade</h2>
-                <p>İnternet Mağazasından yaptığınız alışverişlerinizde ürününüzün iadesi için teslim alma tarihinden itibaren 14 gün içinde talebinizi iletmeniz gerekmektedir. İade talebi adımları için<span style="color: #0058a3;"> tıklayın.</span></p>
+                <p>İnternet Mağazasından yaptığınız alışverişlerinizde ürününüzün iadesi için teslim alma tarihinden itibaren 14 gün içinde talebinizi iletmeniz gerekmektedir. İade talebi adımları için<span style="color: #0058a3;" class="tikla"> tıklayın.</span></p>
               </v-col>
             </v-row>
 
@@ -106,7 +106,7 @@
                     <h4 style="color: black;font-size: 17px;">Nakliye Bedeli</h4>
                     <p style="padding-top: 5px;padding-bottom: 10px;color: #6e6e6e;">KDV Dahil</p>
                   </v-col>
-                  <v-col cols="6" class="text-right" style="color: black;font-weight: bold;padding-top:0px;font-size: 17px;">{{ new Intl.NumberFormat('tr-TR').format(Math.max(Math.floor(totalAmount * 0.111), 199)) }}₺</v-col>
+                  <v-col cols="6" class="text-right" style="color: black;font-weight: bold;padding-top:0px;font-size: 17px;">{{ new Intl.NumberFormat('tr-TR').format(Math.max(Math.floor(totalAmount * 0.11), 199)) }}₺</v-col>
                 </v-row>
                 <v-divider></v-divider>
                 <v-row  style="padding-top:20px;">
@@ -114,7 +114,7 @@
                     <strong style="color: black;font-size: 17px;">Genel Toplam</strong>
                     <p style="padding-top: 5px;color: #6e6e6e;">KDV Dahil</p>
                   </v-col>
-                  <v-col cols="6" class="text-right" style="color: black;font-size: 17px;"><strong>{{ new Intl.NumberFormat('tr-TR').format(Math.floor(totalAmount + Math.max((totalAmount * 0.11111), 199))) }}₺</strong></v-col>
+                  <v-col cols="6" class="text-right" style="color: black;font-size: 17px;"><strong>{{ new Intl.NumberFormat('tr-TR').format(Math.floor(totalAmount + Math.max((totalAmount * 0.11), 199))) }}₺</strong></v-col>
                 </v-row>
                 <div class="text-left" style="padding: 17px 20px 35px 0px;color: #6e6e6e;">
                   Stoktaki Ürünler Toplamıdır
@@ -273,6 +273,11 @@ export default {
   width: 60px;
   height: 60px;
   transition: background-color 0.3s;
+}
+
+.tikla:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 </style>

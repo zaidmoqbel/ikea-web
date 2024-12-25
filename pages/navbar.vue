@@ -109,7 +109,7 @@
                           <v-list-item-subtitle>{{ cartItems[0].description }}</v-list-item-subtitle>
                         </v-list-item-content>
                         <v-list-item-action>
-                          <v-list-item-title style="font-weight: bold;" class="price">{{ cartItems[0].price }}₺</v-list-item-title>
+                          <v-list-item-title style="font-weight: bold;" class="price">{{ new Intl.NumberFormat('tr-TR').format(cartItems[0].price) }}₺</v-list-item-title>
                           <v-btn icon @click="removeFirstItem" style="color: #0058a3 !important;" class="trash-btn" elevation="0" plain>
                             <v-icon>mdi-trash-can-outline</v-icon>
                           </v-btn>

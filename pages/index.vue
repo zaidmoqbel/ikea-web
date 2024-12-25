@@ -1,6 +1,5 @@
 <template>
   <div class="home-page">
-    <Nbar />
     <UpperBanner />
     <YilBasi />
     <VinterFint />
@@ -11,6 +10,5 @@
     <YeniUrun />
     <RengaRenk />
     <HizmetLer />
-    <footerr />
   </div>
 </template>
