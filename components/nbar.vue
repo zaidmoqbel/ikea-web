@@ -2,7 +2,7 @@
 
   <div class="nav-bar" style="padding: 0;">
     <v-app-bar height="fit-content" absolute style="box-shadow: none; background-color: white !important;">
-      <v-app-bar-nav-icon @click="navigateToAnotherPage" location="left" class="menu-drawer" style="left: 50px; bottom:15px" ></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click="toggleDrawer" location="left" class="menu-drawer" style="left: 50px; bottom:15px" ></v-app-bar-nav-icon>
       <v-container style="padding-top: 10px;">
         <nav class="links_navbar" style="margin-left: 70px;">
           <ul class="links d-flex text-black"
@@ -109,7 +109,7 @@
                           <v-list-item-subtitle>{{ cartItems[0].description }}</v-list-item-subtitle>
                         </v-list-item-content>
                         <v-list-item-action>
-                          <v-list-item-title style="font-weight: bold;" class="price">{{ cartItems[0].price }}₺</v-list-item-title>
+                          <v-list-item-title style="font-weight: bold;" class="price">{{ new Intl.NumberFormat('tr-TR').format(cartItems[0].price) }}₺</v-list-item-title>
                           <v-btn icon @click="removeFirstItem" style="color: #0058a3 !important;" class="trash-btn" elevation="0" plain>
                             <v-icon>mdi-trash-can-outline</v-icon>
                           </v-btn>
@@ -147,10 +147,23 @@
         <div class="border-line"></div>
       </v-container>
     </v-app-bar>
+    <v-navigation-drawer
+      v-model="drawer"
+      app
+      temporary
+      left
+      overlay
+      style="transition: transform 0.3s ease-in-out; width: 480px;">
+      <v-list>
+        <SideContent />
+      </v-list>
+    </v-navigation-drawer>
   </div>
 </template>
 
 <script>
+import SideContent from './side-content.vue';
+
 export default {
   computed: {
     cartItems() {
@@ -161,6 +174,9 @@ export default {
     },
   },
   methods: {
+    toggleDrawer() {
+      this.drawer = !this.drawer;
+    },
     goToCart() {
       this.$router.push('/cart')
     },
@@ -189,6 +205,7 @@ export default {
   },
   data() {
     return {
+      drawer: false,
       cartMenu: false,
       searchQuery: '',
       isFocused: false,
