@@ -25,58 +25,86 @@
 
       <!-- Submenu -->
       <nav v-if="activeSubmenu" class="submenu-nav">
-        <v-btn class="back-button" icon @click="toggleSubmenu(null)" flat><v-icon style="color: black;padding-left: 75px;">mdi-chevron-left</v-icon></v-btn>
-        <span style="font-weight: bold;font-size: 1.2rem;margin-left: 26%;">Ürünler</span>
-        <ul class="submenu">
-          <li v-for="submenuItem in getSubmenuItems(activeSubmenu)" :key="submenuItem.name">
-            <router-link :to="submenuItem.path" style="text-decoration: none; color: #111;">{{ submenuItem.name }}</router-link>
-          </li>
-        </ul>
-      </nav>
+  <v-btn class="back-button" text icon @click="toggleSubmenu(null)">
+    <v-icon style="color: black; padding-left: 75px;" >mdi-chevron-left</v-icon>
+  </v-btn>
+  <span style="font-weight: bold; font-size: 1.2rem; margin-left: 21%;">{{ activeSubmenu }}</span>
+
+  <ul v-if="activeSubmenu === 'Ürünler'" class="submenu">
+    <li v-for="submenuItem in getSubmenuItems()" :key="submenuItem.name">
+      <router-link
+        :to="submenuItem.path"
+        :style="{
+          textDecoration: 'none',
+          color: '#111',
+          fontWeight: submenuItem.bold ? 'bold' : 'normal',
+        }"
+      >
+        {{ submenuItem.name }}
+      </router-link>
+    </li>
+  </ul>
+
+  <div v-if="activeSubmenu === 'Odalar'" class="submenu-grid">
+    <div v-for="submenuItem in getSubmenuItems()" :key="submenuItem.name" class="submenu-item">
+      <router-link :to="submenuItem.path" style="text-decoration: none; color: #111;">
+        <img :src="submenuItem.image" alt="" class="submenu-image" />
+        <p class="submenu-text">{{ submenuItem.name }}</p>
+      </router-link>
+    </div>
+  </div>
+</nav>
+
     </nav>
   </div>
 </template>
-
-
 
 <script>
 export default {
   data() {
     return {
       drawer: false,
-      activeSubmenu: null, // Track the currently active submenu
+      activeSubmenu: null,
       mainNavItems: [
-        {
-          name: "Ürünler",
-          path: '/',
-          hasSubmenu: true,
-          submenu: [
-            { name: "İNDİRİM", path: '/indirim' },
-            { name: "Tüm Mobilyalar", path: '/mobilyalar' },
-            { name: "Tüm Aksesuarlar", path: '/aksesuarlar' },
-            { name: "Yeni Ürünler", path: '/yeniler' },
-            { name: "Çok Satanlar", path: '/cok-satanlar' },
-            { name: "Her Eve Lazım", path: '/her-eve-lazim' },
-            { name: "Sürdürülebilirlik", path: "/surdurulebilirlik" },
-            { name: "En Düşük Fiyat", path: "/en-dusuk-fiyat" },
-            { name: "Koleksiyonlar", path: "/koleksiyonlar" },
-            { name: "Yılbaşı Dekorasyonu", path: "/yilbasi-dekorasyonu" },
-            { name: "Mobilyalar", path: "/mobilyalar" },
-            { name: "Depolama & Organizasyon", path: "/depolama-organizasyon" },
-            { name: "Yataklar ve Karyolalar", path: "/yataklar-ve-karyolalar" },
-            { name: "Ev-Ofis", path: "/ev-ofis" },
-            { name: "Bebek & Çocuk", path: "/bebek-cocuk" },
-            { name: "Yemek Odası Mobilyaları", path: "/yemek-odasi-mobilyalari" },
-            { name: "Dış Mekan Ürünleri", path: "/dis-mekan-urunleri" },
-            { name: "Ev Düzenleme", path: "/ev-duzenleme" },
-            { name: "Ev Tekstili", path: "/ev-tekstili" },
-            { name: "Züccaciye", path: "/zuccaciye" },
-            { name: "Dekorasyon", path: "/dekorasyon" },
-            { name: "Daha fazla", path: "/daha-fazla" },
-          ]
-        },
-        { name: "Odalar", path: '/odalar', hasSubmenu: false },
-      ],
+      { name: "Ürünler", path: "/", hasSubmenu: true },
+      { name: "Odalar", path: "/odalar", hasSubmenu: true },
+    ],
+          urunlerSubmenu: [
+            {bold: true , name: "İNDİRİM", path: '/indirim' },
+            {bold: true , name: "Tüm Mobilyalar", path: '/mobilyalar' },
+            {bold: true , name: "Tüm Aksesuarlar", path: '/aksesuarlar' },
+            {bold: true , name: "Yeni Ürünler", path: '/yeniler' },
+            {bold: true , name: "Çok Satanlar", path: '/cok-satanlar' },
+            {bold: true , name: "Her Eve Lazım", path: '/her-eve-lazim' },
+            {bold: true , name: "Sürdürülebilirlik", path: "/surdurulebilirlik" },
+            {bold: true , name: "En Düşük Fiyat", path: "/en-dusuk-fiyat" },
+            {bold: true , name: "Koleksiyonlar", path: "/koleksiyonlar" },
+            {bold:false , name: "Yılbaşı Dekorasyonu", path: "/yilbasi-dekorasyonu" },
+            {bold:false , name: "Mobilyalar", path: "/mobilyalar" },
+            {bold:false , name: "Depolama & Organizasyon", path: "/depolama-organizasyon" },
+            {bold:false , name: "Yataklar ve Karyolalar", path: "/yataklar-ve-karyolalar" },
+            {bold:false , name: "Ev-Ofis", path: "/ev-ofis" },
+            {bold:false , name: "Bebek & Çocuk", path: "/bebek-cocuk" },
+            {bold:false , name: "Yemek Odası Mobilyaları", path: "/yemek-odasi-mobilyalari" },
+            {bold:false , name: "Dış Mekan Ürünleri", path: "/dis-mekan-urunleri" },
+            {bold:false , name: "Ev Düzenleme", path: "/ev-duzenleme" },
+            {bold:false , name: "Ev Tekstili", path: "/ev-tekstili" },
+            {bold:false , name: "Züccaciye", path: "/zuccaciye" },
+            {bold:false , name: "Dekorasyon", path: "/dekorasyon" },
+            {bold:true , name: "Daha fazla", path: "/daha-fazla" },
+          ],
+        odalarSubmenu:[
+          { name: "Yatak Odası", path: "/odalar/yatak-odasi", image: require("@/assets/side-bar-imgs/1.png") },
+          { name: "Oturma Odası", path: "/odalar/oturma-odasi", image: require("@/assets/side-bar-imgs/2.png") },
+          { name: "Çalışma Odası", path: "/odalar/calisma-odasi", image: require("@/assets/side-bar-imgs/3.png") },
+          { name: "Yemek Odası", path: "/odalar/yemek-odasi", image:require( "@/assets/side-bar-imgs/4.png") },
+          { name: "Mutfak", path: "/odalar/mutfak", image: require("@/assets/side-bar-imgs/5.png") },
+          { name: "Bebek ve Çocuk Odası", path: "/odalar/bebek-cocuk-odasi", image: require("@/assets/side-bar-imgs/6.png") },
+          { name: "Banyo", path: "/odalar/bebek-cocuk-odasi", image: require("@/assets/side-bar-imgs/7.png") },
+          { name: "Antre ve Ardiye", path: "/odalar/bebek-cocuk-odasi", image: require("@/assets/side-bar-imgs/8.png") },
+          { name: "Oyuncu Odası", path: "/odalar/bebek-cocuk-odasi", image: require("@/assets/side-bar-imgs/9.png") },
+          { name: "İş yeriniz İçin", path: "/odalar/bebek-cocuk-odasi", image: require("@/assets/side-bar-imgs/10.png") },
+        ],
       secondNavItems: [
         { name: "Mağazalarımız", path: "/" },
         { name: "Hizmetler", path: "/" },
@@ -94,16 +122,19 @@ export default {
   },
   methods: {
     closeDrawer() {
-      this.drawer = false; // Close the drawer
+      this.drawer = false;
     },
     toggleSubmenu(menuName) {
-      this.activeSubmenu = this.activeSubmenu === menuName ? null : menuName;
-    },
-    getSubmenuItems(menuName) {
-      // Get the submenu items for the active menu
-      const menuItem = this.mainNavItems.find(item => item.name === menuName);
-      return menuItem && menuItem.submenu ? menuItem.submenu : [];
+    this.activeSubmenu = this.activeSubmenu === menuName ? null : menuName;
+  },
+  getSubmenuItems() {
+    if (this.activeSubmenu === "Ürünler") {
+      return this.urunlerSubmenu;
+    } else if (this.activeSubmenu === "Odalar") {
+      return this.odalarSubmenu;
     }
+    return [];
+  },
   },
 };
 </script>
@@ -111,6 +142,14 @@ export default {
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400&display=swap');
+
+.v-btn:before {
+  opacity: 0 !important;
+}
+
+.v-ripple__container {
+  opacity: 0 !important;
+}
 
 .menu-wrapper {
   display: flex;
@@ -148,7 +187,6 @@ export default {
   margin-right: 50%;
 }
 
-/* Main Navigation */
 .main-nav {
   list-style-type: none;
   padding: 0;
@@ -163,7 +201,7 @@ export default {
 
 .submenu {
   list-style-type: none;
-  padding-top: 20px;
+  padding-top: 40px;
   text-align: left;
   margin-left: 30%;
   font-size: 0.9rem;
@@ -172,11 +210,11 @@ export default {
 }
 
 .submenu li {
-  padding: 5px 0; /* Add spacing between submenu items */
+  padding: 5px 0;
 }
 
 .submenu li:hover {
-  background-color: none; /* Highlight submenu items on hover */
+  background-color: none;
   cursor: pointer;
   text-decoration: underline;
 }
@@ -199,6 +237,56 @@ export default {
 }
 
 .main-nav li:hover, .second-nav li:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.submenu-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  column-gap: 20px;
+  row-gap: 10px;
+}
+
+.submenu-item:nth-child(2n) {
+  margin-left: -85px;
+}
+
+.submenu-item {
+  text-align: left;
+  padding-left: 47%;
+}
+
+.submenu-image {
+  width: 137.5px;
+  height: auto;
+  border-radius: 0;
+}
+
+.submenu-text {
+  font-size: 0.9rem;
+  margin-bottom: 40px;
+  font-weight: normal;
+}
+
+.submenu-item:hover {
+  text-decoration: underline;
+}
+
+.submenu {
+  list-style-type: none;
+  padding: 0;
+  margin-left: 30%;
+  font-size: 0.9rem;
+  line-height: 25px;
+  font-weight: bold;
+}
+
+.submenu li {
+  padding: 5px 0;
+}
+
+.submenu li:hover {
   text-decoration: underline;
   cursor: pointer;
 }
