@@ -47,6 +47,11 @@ export default {
       drawer: false,
       items: [
         {
+          icon: 'mdi-web',
+          title: 'IKEA FULL WEBSITE',
+          to: '/fullpage'
+        },
+        {
           icon: 'mdi-home',
           title: 'Home Page',
           to: '/'
@@ -87,6 +92,11 @@ export default {
           to: '/memnuyiet'
         },
         {
+          icon: 'mdi-food',
+          title: 'İsveç Restoran',
+          to: '/restoran'
+        },
+        {
           icon: 'mdi-sofa',
           title: 'Kanepler ',
           to: '/Kanepler'
@@ -96,6 +106,7 @@ export default {
           title: 'Cart ',
           to: '/cart'
         },
+
       ],
     }
   }
