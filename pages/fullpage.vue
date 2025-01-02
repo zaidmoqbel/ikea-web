@@ -5,7 +5,6 @@
     <YilBasi />
     <VinterFint />
     <YeniYil />
-    <EvAksesuar />
     <KeyifliBulusmalar />
     <YemekOda />
     <YeniUrun />
