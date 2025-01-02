@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="text-container" align="left" style="margin: 70px 98px 30px 0px">
-        <h2 style="padding-bottom:20px ; ">VINTERFINT Koleksiyonu ile evinize sıcaklık katın</h2>
-        <p style="padding-bottom:15px ;font-size: 0.83rem;">Karşınızda her ev için ideal olan VINTERFINT yılbaşı dekorasyonu ürünleri. Eski süslere veda edin ve daha eğlenceli yılbaşı dekorasyon ürünlerine merhaba deyin. En iyi kısmı ise düzgün bir şekilde depolandığında bir sonraki yıl da kullanabilirsiniz!</p>
-        <v-btn rounded class="text-none hovering" outlined>
-                Tüm çam ağaçları ve süsleri inceleyin
+    <div class="text-container" align="left" style="margin: 0px">
+        <h2 style="padding-bottom:20px ; ">Nasıl bir gardıroba sahip olmak istersiniz?</h2>
+        <p style="padding-bottom:15px ;font-size: 13px;">Kapaklı gardıroplar yatak odanızdan antrenize kadar bulundukları alanda doğrudan bir düzenleme etkisine sahiptir. Gardıroplarınızı alanınızda koordineli bir görünüm oluşturmak ve renk kontrastlarıyla ruh halinize uygun bir görünüm yaratmak için kullanın. Hangi tarzda bir gardırop seçerseniz seçin, dağınıklığı azaltabilir ve odanızda ferah bir his yaratabilirsiniz.</p>
+        <v-btn rounded class="text-none hovering" outlined style="margin-bottom: 45px;">
+                Tüm Kapaklı gardıropları inceleyin
         </v-btn>
     </div>
 
@@ -12,31 +12,40 @@
         <v-row class="grid-images">
             <v-col cols="6" md="6">
                 <div class="image-parent">
-                    <video
-                    src="../assets/main-imgs/cam-agaci-video.mp4"
-                    controls
+                    <img
+                    src="../assets/new/leftbig.png"
                     style="width: 555px; height: 663px; object-fit: cover;"
-                    loop
-                    muted
-                    ></video>
+                    >
+                    <div class="info-box">
+                        <h3>KLEPPSTAD</h3>
+                        <h4>gardırop, beyaz</h4>
+                        <h2>4.099₺</h2>
+                        <v-btn
+                        rounded
+                        size="large"
+                        class="text-none"
+                        style="font-weight: 500; background-color: #0058a3; color: white;"
+                        ><img src="../assets/add-to-basket.png" style="height: 24px;width: 24px;">Sepete Ekle</v-btn>
+                    </div>
+                  </img>
                 </div>
             </v-col>
             <v-col cols="3">
                 <div class="image-parent" style="position: relative;">
-                    <img src="../assets/main-imgs/yilbasi-tr.png" alt="" style="height: 275px;width: 275px;">
+                    <img src="../assets/new/centertop.png" alt="" style="height: 275px;width: 275px;">
                 </div>
                 <div class="image-parent" style="position: relative;">
-                    <img src="../assets/main-imgs/agac.png" alt="" style="height: 378px;width: 275px;">
+                    <img src="../assets/new/centerbottom.png" alt="" style="height: 378px;width: 275px;">
                     <div class="shoppable-image-dot"></div>
                 </div>
             </v-col>
             <v-col cols="3">
                 <div class="image-parent" style="position: relative;">
-                    <img src="../assets/main-imgs/vinterfint-cok-renkli-agac.png" alt=""  style="height: 378px;width: 275px;">
+                    <img src="../assets/new/righttop.png" alt=""  style="height: 378px;width: 275px;">
                     <div class="shoppable-image-dot"></div>
                 </div>
                 <div class="image-parent" style="position: relative;">
-                    <img src="../assets/main-imgs/vinterfint-siyah-noel-corabi.png" alt="" style="height: 275px;width: 275px;">
+                    <img src="../assets/new/rightbottom.png" alt="" style="height: 275px;width: 275px;">
                 </div>
             </v-col>
         </v-row>
@@ -74,7 +83,7 @@ export default{
 }
 
 .hovering {
-    font-size: 11px;
+    font-size: 8px;
     color: black;
     font-weight: 1000;
     font-family: 'Noto IKEA Latin Regular', sans-serif;
@@ -124,6 +133,13 @@ export default{
     top: 50%;
     transform: translate(-50%, -50%);
 }
+
+.info-box {
+  margin-left: 30px;
+  margin-bottom: 100px;
+  color: black;
+}
+
 
 
 </style>
