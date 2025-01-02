@@ -137,8 +137,6 @@
             <ul class="links d-flex text-black" style="list-style: none; font-weight: 550;">
               <NuxtLink to="/sidebar" style="text-decoration: none;color:black"><li style="padding-left: 30px; font-weight:600">Ürünler</li></NuxtLink>
               <li style="padding-left: 30px; font-weight:600;color:black">Odalar</li>
-              <li style="color: red;padding-left: 30px; font-weight:600">Son Günlerim</li>
-              <li style="color: green; padding-left: 30px; font-weight:600">Yılbaşı</li>
               <li style="color: orange; padding-left:  30px; font-weight:600">YENİ</li>
               <li style="padding-left: 30px; font-weight:600;color:black">İyi Fikirler</li>
             </ul>
