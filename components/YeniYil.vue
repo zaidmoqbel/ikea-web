@@ -1,7 +1,7 @@
 <template>
   <div>
   <div class="text-container" align="left" style="margin: 70px 98px 30px 0px">
-    <h2 style="padding-bottom:20px ; ">Evinizi yeni yıla hazırlayın</h2>
+    <h2 style="padding-bottom:20px ; ">Depolama alanlarınızı genişletmek için kategorilerimizi keşfedin</h2>
   </div>
 
   <v-sheet
@@ -54,15 +54,13 @@ export default {
   data: () => ({
     model: [],
     images: [
-      { src: require('@/assets/yeni-yil-slider/cam-agaci-ve-susler.png'),label: 'Çam Ağaçları ve Süsler'},
-      { src: require('@/assets/yeni-yil-slider/yilbasi-susleri.png'),label: 'Yılbaş Süslemeler'},
-      { src: require('@/assets/yeni-yil-slider/yilbasi-aydinlatmasi.png'),label: 'Yılbaşı Aydınlatmaları'},
-      { src: require('@/assets/yeni-yil-slider/yilbasi-dekorasyon-urunleri.png'),label: 'Dekorasyon Ürünleri'},
-      { src: require('@/assets/yeni-yil-slider/sofra-ve-pisirme-aksesuarlari.png'),label: 'Sofra ve Pişirme Aksesuarları'},
-      { src: require('@/assets/yeni-yil-slider/mumlar-ve-mumluklar.png'),label: 'Mumlar ve Mumluklar'},
-      { src: require('@/assets/yeni-yil-slider/hediye-aksesuarlari.png'),label: 'Hediye Aksesuarları'},
-      { src: require('@/assets/yeni-yil-slider/yilbasi-tekstili.png'),label: 'Yılbaşı Tekstilli Ürünleri'},
-      { src: require('@/assets/yeni-yil-slider/yapay-bitkiler.png'), label: 'Yılbaşı için Yapay Bitkiler'},
+      { src: require('@/assets/new/1.png'),label: 'Gardıroplar'},
+      { src: require('@/assets/new/2.png'),label: 'Açık Depolama Sistemleri'},
+      { src: require('@/assets/new/3.png'),label: 'Şifoneyerler'},
+      { src: require('@/assets/new/4.png'),label: 'Sepetler'},
+      { src: require('@/assets/new/5.png'),label: 'Kutular'},
+      { src: require('@/assets/new/6.png'),label: 'Askılar ve Askılıklar'},
+      { src: require('@/assets/new/7.png'),label: 'Hurçlar'},
     ],
   }),
 
