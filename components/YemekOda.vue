@@ -1,7 +1,7 @@
 <template>
   <div>
   <div class="text-container" align="left" style="margin: 70px 98px 30px 0px">
-    <h2 style="padding-bottom:20px ; ">Yemek odanızı güzelleştirecek her şey burada!</h2>
+    <h2 style="padding-bottom:20px ; ">Çocuk odası için tamamlayıcı mobilyalar</h2>
   </div>
 
   <v-sheet class="mx-auto" elevation="0" max-width="100%">
@@ -10,7 +10,7 @@
         <v-card :class="['ma-2']" height="315.75" width="240.5" style="border-radius:0; background: transparent; box-shadow: none;">
           <div class="d-flex fill-height align-center justify-center">
             <v-img :src="image.src" :alt="'Image ' + (index + 1)" height="100%" width="100%" cover></v-img>
-            <v-btn class="image-button text-none" @click="buttonClick(index)" rounded>{{ image.label }}</v-btn>
+            <v-btn class="image-button text-none" @click="buttonClick(index)" rounded small>{{ image.label }}</v-btn>
           </div>
         </v-card>
       </v-slide-group-item>
@@ -24,13 +24,13 @@ export default {
   data: () => ({
     model: [],
     images: [
-      { src: require('@/assets/yemek-oda-imgs/yemek-masalari.png'), label: 'Yemek Masaları' },
-      { src: require('@/assets/yemek-oda-imgs/yemek-sandalyesi.png'), label: 'Yemek Odası Sandalyeleri' },
-      { src: require('@/assets/yemek-oda-imgs/sofra-urunleri.png'), label: 'Sofra Ürünleri' },
-      { src: require('@/assets/yemek-oda-imgs/servis-ve-sunum.png'), label: 'Servis ve Sunum Ürünleri' },
-      { src: require('@/assets/yemek-oda-imgs/tabaklar.png'), label: 'Tabaklar' },
-      { src: require('@/assets/yemek-oda-imgs/amerikan-servisler.png'), label: 'Amerikan Servisler' },
-      { src: require('@/assets/yemek-oda-imgs/catal-kasik-bicaklar.png'), label: 'Çatal Bıçak ve Kaşıklar' },
+      { src: require('@/assets/new/c1.png'), label: 'Ranzalar' },
+      { src: require('@/assets/new/c2.png'), label: 'Çocuk Yatakları' },
+      { src: require('@/assets/new/c3.png'), label: 'Çocuk Tekstili' },
+      { src: require('@/assets/new/c4.png'), label: 'Çocuk Masa Sandalye Takımları' },
+      { src: require('@/assets/new/c5.png'), label: 'Çocuk Oyuncakları' },
+      { src: require('@/assets/new/c6.png'), label: 'Çocuk Odası Aydınlatmaları' },
+      { src: require('@/assets/new/c7.png'), label: 'SMASTAD Sistemleri' },
     ],
   }),
   methods: {
@@ -55,7 +55,7 @@ export default {
   left: 50%;
   transform: translateX(-50%);
   font-family: 'Noto IKEA Latin Regular', sans-serif;
-  font-weight: 600;
-  font-size: 12px;
+  font-weight: 500;
+  font-size: 8px;
 }
 </style>

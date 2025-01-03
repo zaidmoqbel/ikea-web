@@ -32,7 +32,7 @@ export default {
     return {
       product: {
         id: 100,
-        name: "RAMNEFJALL/LURÖY",
+        title: "RAMNEFJALL/LURÖY",
         description: "çift kişilik karyola, kilanda açık bej",
         image: require('@/assets/new/product1.png'),
         price: 9999,
