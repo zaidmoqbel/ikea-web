@@ -135,8 +135,8 @@
         <v-row class="mt-2">
           <v-col>
             <ul class="links d-flex text-black" style="list-style: none; font-weight: 550;">
-              <NuxtLink to="/sidebar" style="text-decoration: none;color:black"><li style="padding-left: 30px; font-weight:600">Ürünler</li></NuxtLink>
-              <li style="padding-left: 30px; font-weight:600;color:black">Odalar</li>
+              <li style="padding-left: 30px; font-weight:600"     @click="navigateToUrunler">Ürünler</li>
+              <li style="padding-left: 30px; font-weight:600;color:black" @click="navigateToUrunler">Odalar</li>
               <li style="color: orange; padding-left:  30px; font-weight:600">YENİ</li>
               <li style="padding-left: 30px; font-weight:600;color:black">İyi Fikirler</li>
             </ul>
@@ -199,7 +199,10 @@ export default {
     },
     navigateToAnotherPage() {
       this.$router.push('/sidebar');
-    }
+    },
+    navigateToUrunler() {
+    this.drawer = true; // Open the side menu
+  }
   },
   data() {
     return {
